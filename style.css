@@ -225,6 +225,34 @@ img {
     border-bottom: var(--border-thin);
 }
 
+/* Navbar legibility over the hero photograph.
+   Unscrolled, the bar is transparent and sits on a dark image, so the dark
+   logo/links were effectively invisible. Light text + a soft top scrim fixes it;
+   both fade out as the solid cream bar takes over on scroll. */
+.navbar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0));
+    transition: opacity var(--duration-medium) var(--transition-slow);
+}
+
+.navbar.scrolled::before {
+    opacity: 0;
+}
+
+.navbar:not(.scrolled) .logo,
+.navbar:not(.scrolled) .nav-link,
+.navbar:not(.scrolled) .nav-link.active {
+    color: #FFFFFF;
+}
+
+.navbar:not(.scrolled) .hamburger .bar {
+    background-color: #FFFFFF;
+}
+
 .nav-container {
     max-width: 1280px;
     margin: 0 auto;
@@ -435,6 +463,7 @@ img {
     display: flex;
     gap: 20px;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 /* Infinite zoom animation */

@@ -438,7 +438,7 @@ document.addEventListener('DOMContentLoaded', () => {
        WHATSAPP RESERVATION FORM MODAL
        ========================================================================== */
     const waModal = document.getElementById('wa-reservation-modal');
-    const waOpenBtn = document.getElementById('whatsapp-floating-btn');
+    const waOpenTriggers = document.querySelectorAll('#whatsapp-floating-btn, [data-open-reservation]');
     const waCloseBtn = document.getElementById('wa-reservation-modal-close-btn');
     const waOverlay = document.getElementById('wa-reservation-modal-overlay');
     const waForm = document.getElementById('wa-reservation-form');
@@ -479,12 +479,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    if (waOpenBtn) {
-        waOpenBtn.addEventListener('click', (e) => {
+    waOpenTriggers.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
             e.preventDefault();
             openWaModal();
         });
-    }
+    });
 
     if (waCloseBtn) waCloseBtn.addEventListener('click', closeWaModal);
     if (waOverlay) waOverlay.addEventListener('click', closeWaModal);
