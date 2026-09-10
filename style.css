@@ -314,6 +314,32 @@ img {
     transform-origin: left;
 }
 
+/* "Book a table" — the one action in the nav, so it reads as a button, not a
+   link. Borders/'text use currentColor so it inherits the light-over-hero /
+   dark-when-scrolled treatment automatically. */
+.nav-book {
+    opacity: 1;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    padding: 7px 15px;
+    margin-left: 4px;
+    transition: background-color var(--duration-fast), color var(--duration-fast);
+}
+
+.nav-book::after {
+    display: none;
+}
+
+.navbar.scrolled .nav-book:hover {
+    background-color: var(--color-text-primary);
+    color: var(--color-bg-primary);
+}
+
+.navbar:not(.scrolled) .nav-book:hover {
+    background-color: #FFFFFF;
+    color: #0F0F0F;
+}
+
 .highlight-instagram {
     font-weight: 500;
     opacity: 0.8;
@@ -1246,7 +1272,8 @@ img {
     color: var(--color-text-primary);
 }
 
-.social-icons i {
+.social-icons i,
+.social-icons svg {
     width: 20px;
     height: 20px;
 }
