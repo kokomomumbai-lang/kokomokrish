@@ -116,6 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let activeCategory = 'all';
     let searchQuery = '';
+    let vegOnly = false;
 
     const filterMenu = () => {
         let shownCount = 0;
@@ -125,10 +126,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const itemName = item.querySelector('.menu-item-name')?.textContent.toLowerCase() || '';
             const itemDesc = item.querySelector('.menu-item-desc')?.textContent.toLowerCase() || '';
 
-            const matchesCategory = activeCategory === 'all' || itemCategory === activeCategory;
+            const matchesCategory = activeCategory === 'all' || itemCategory === activeCategory
+                || (activeCategory === 'bestsellers' && item.dataset.best === '1');
             const matchesSearch = itemName.includes(searchQuery) || itemDesc.includes(searchQuery);
+            // Veg only = no meat and no egg, matching the green dot
+            const matchesDiet = !vegOnly || item.dataset.diet === 'veg';
 
-            let shouldShow = matchesCategory && matchesSearch;
+            let shouldShow = matchesCategory && matchesSearch && matchesDiet;
 
             // If "All Menu" is active (default landing state), limit to the top 11 items
             if (shouldShow && activeCategory === 'all') {
@@ -189,6 +193,50 @@ document.addEventListener('DOMContentLoaded', () => {
             searchQuery = e.target.value.toLowerCase().trim();
             filterMenu();
         });
+    }
+
+    /* ==========================================================================
+       GA4 CONVERSION CLICKS (calls, WhatsApp, directions, ordering, booking)
+       ========================================================================== */
+    document.addEventListener('click', (e) => {
+        if (typeof gtag !== 'function') return;
+        const el = e.target.closest('a, button');
+        if (!el) return;
+        const href = el.getAttribute('href') || '';
+        let name = null;
+        if (href.startsWith('tel:')) name = 'click_to_call';
+        else if (/wa\.me/.test(href) || el.id === 'whatsapp-floating-btn') name = 'whatsapp_click';
+        else if (/google\.[a-z.]+\/maps/.test(href) || el.id === 'btn-start-navigation') name = 'get_directions_click';
+        else if (/swiggy\.com|zomato\.com/.test(href)) name = 'order_online_click';
+        else if (el.id === 'order-online-btn') name = 'order_online_open';
+        else if (el.hasAttribute('data-open-reservation')) name = 'book_table_open';
+        else if (el.classList.contains('filter-btn')) name = 'menu_category_view';
+        if (name) gtag('event', name, { link_url: href || undefined, category: el.dataset.category || undefined });
+    });
+
+    const vegOnlyBtn = document.getElementById('veg-only-btn');
+    if (vegOnlyBtn) {
+        vegOnlyBtn.addEventListener('click', () => {
+            vegOnly = !vegOnly;
+            vegOnlyBtn.setAttribute('aria-pressed', String(vegOnly));
+            vegOnlyBtn.classList.toggle('active', vegOnly);
+            filterMenu();
+        });
+    }
+
+    /* ==========================================================================
+       OPEN / CLOSED BADGE (Mumbai time, open daily 11:00 AM – 11:00 PM)
+       ========================================================================== */
+    const openStatus = document.getElementById('open-status');
+    if (openStatus) {
+        const paint = () => {
+            const s = kokomoStatus(Date.now());
+            openStatus.textContent = s.text;
+            openStatus.classList.remove('is-open', 'is-closing', 'is-closed');
+            openStatus.classList.add('is-' + s.state);
+        };
+        paint();
+        setInterval(paint, 60000);
     }
 
     // Initialize and display the full menu completely on page load
@@ -550,6 +598,9 @@ document.addEventListener('DOMContentLoaded', () => {
             // Close the modal
             closeWaModal();
 
+            // Count the booking request in GA4 (no name or free text sent)
+            if (typeof gtag === 'function') gtag('event', 'reservation_whatsapp_submit', { guests: guestsFormatted, time: time });
+
             // Redirect in a new tab
             window.open(whatsappUrl, '_blank');
         });
@@ -604,3 +655,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// Cafe Kokomo hours in Mumbai time (UTC+5:30, no daylight saving): open 11:00, close 23:00, every day.
+function kokomoStatus(nowMs) {
+    const m = Math.floor(nowMs / 60000 + 330) % 1440; // minutes past midnight, IST
+    if (m >= 660 && m < 1350) return { state: 'open', text: 'Open now · Closes at 11 PM' };
+    if (m >= 1350 && m < 1380) return { state: 'closing', text: 'Closing soon · Closes at 11 PM' };
+    return { state: 'closed', text: m < 660 ? 'Closed now · Opens today at 11 AM' : 'Closed now · Opens tomorrow at 11 AM' };
+}
+if (typeof module !== 'undefined') module.exports = { kokomoStatus };

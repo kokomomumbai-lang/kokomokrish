@@ -16,8 +16,8 @@
     <meta property="og:description" content="Welcome to Cafe Kokomo. A cozy, tropical-themed cafe in Santacruz East for specialty coffee, comfort food, quick bites, and easy conversations.">
     <meta property="og:image" content="https://cafekokomo.com/assets/images/media__1779297184171.jpg">
     <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+    <meta property="og:image:width" content="621">
+    <meta property="og:image:height" content="589">
     <meta property="og:image:alt" content="Cozy Cafe Kokomo interior and signature dishes">
 
     <!-- Twitter / X -->
@@ -54,7 +54,7 @@
 
     <!-- Restaurant structured data -->
     <script type="application/ld+json">
-    {"@context": "https://schema.org", "@type": "CafeOrCoffeeShop", "name": "Cafe Kokomo", "url": "https://cafekokomo.com", "image": "https://cafekokomo.com/assets/images/media__1779297184171.jpg", "telephone": "+918591515657", "priceRange": "₹₹", "servesCuisine": ["Cafe", "Coffee", "Continental", "Desserts"], "address": {"@type": "PostalAddress", "streetAddress": "4, Pratap CHS Limited, Shivaji Road, Near Vakola Bridge, Santacruz East", "addressLocality": "Mumbai", "addressRegion": "Maharashtra", "postalCode": "400055", "addressCountry": "IN"}, "geo": {"@type": "GeoCoordinates", "latitude": 19.0774737, "longitude": 72.8492367}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], "opens": "11:00", "closes": "23:00"}], "sameAs": ["https://www.swiggy.com/city/mumbai/cafe-kokomo-santacruz-east-rest431996", "https://www.zomato.com/mumbai/cafe-kokomo-santacruz-east"]}
+    {"@context": "https://schema.org", "@type": "CafeOrCoffeeShop", "name": "Cafe Kokomo", "url": "https://cafekokomo.com", "image": "https://cafekokomo.com/assets/images/media__1779297184171.jpg", "telephone": "+918591515657", "priceRange": "₹₹", "email": "info@cafekokomo.com", "hasMenu": "https://cafekokomo.com/#menu", "acceptsReservations": true, "servesCuisine": ["Cafe", "Coffee", "Continental", "Middle Eastern", "Desserts"], "address": {"@type": "PostalAddress", "streetAddress": "4, Pratap CHS Limited, Shivaji Road, Near Vakola Bridge, Santacruz East", "addressLocality": "Mumbai", "addressRegion": "Maharashtra", "postalCode": "400055", "addressCountry": "IN"}, "geo": {"@type": "GeoCoordinates", "latitude": 19.0774737, "longitude": 72.8492367}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], "opens": "11:00", "closes": "23:00"}], "sameAs": ["https://www.swiggy.com/city/mumbai/cafe-kokomo-santacruz-east-rest431996", "https://www.zomato.com/mumbai/cafe-kokomo-santacruz-east"]}
     </script>
 </head>
 
@@ -105,7 +105,7 @@
     <!-- 1. Hero Section -->
     <section id="home" class="hero">
         <div class="hero-bg-container">
-            <img fetchpriority="high" decoding="async" src="assets/images/media__1779297184171.jpg" alt="Cafe Kokomo Signature Serve" class="hero-bg">
+            <img fetchpriority="high" decoding="async" src="assets/images/media__1779297184171.webp" alt="Cafe Kokomo Signature Serve" class="hero-bg">
             <div class="hero-overlay"></div>
         </div>
         <div class="hero-content">
@@ -113,6 +113,7 @@
             <h1 class="hero-title fade-in-element">Cafe Kokomo</h1>
             <p class="hero-subtitle fade-in-element">A cozy cafe in Santacruz East for coffee, comfort food, quick
                 bites, and easy conversations.</p>
+            <p class="hero-status fade-in-element" id="open-status" aria-live="polite"></p>
             <div class="hero-ctas fade-in-element">
                 <a href="#menu" class="btn btn-primary">View menu</a>
                 <a href="javascript:void(0)" class="btn btn-primary" data-open-reservation>Book a table</a>
@@ -164,7 +165,7 @@
                 </div>
                 <div class="about-image-col reveal-on-scroll delay-1">
                     <div class="asymmetric-image-wrapper">
-                        <img loading="lazy" decoding="async" src="assets/images/media__1779297685430.jpg" alt="Kokomo Line Art Mural" class="about-img">
+                        <img loading="lazy" decoding="async" src="assets/images/media__1779297685430.webp" alt="Kokomo Line Art Mural" class="about-img">
                     </div>
                 </div>
             </div>
@@ -187,9 +188,15 @@
                     aria-label="Search Menu">
             </div>
 
+            <div class="diet-toggle-row reveal-on-scroll">
+                <button type="button" class="diet-toggle" id="veg-only-btn" aria-pressed="false"><span class="diet-dot diet-veg" aria-hidden="true"></span>Veg only</button>
+                <span class="diet-legend"><span class="diet-dot diet-veg" aria-hidden="true"></span>Veg <span class="diet-dot diet-egg" aria-hidden="true"></span>Egg <span class="diet-dot diet-nonveg" aria-hidden="true"></span>Non-veg</span>
+            </div>
+
             <!-- Menu Filter Categories -->
             <div class="menu-filters reveal-on-scroll">
                 <button class="filter-btn active" data-category="all">All Menu</button>
+                <button class="filter-btn" data-category="bestsellers">Bestsellers</button>
                 <button class="filter-btn" data-category="experiences">Experiences</button>
                 <button class="filter-btn" data-category="coffee">Brews & Coffee</button>
                 <button class="filter-btn" data-category="matcha">Matcha Bar</button>
@@ -206,7 +213,7 @@
             <div class="menu-grid reveal-on-scroll">
 
                 <!-- Sip & Paint -->
-                <div class="menu-item-card" data-category="experiences">
+                <div class="menu-item-card" data-category="experiences" data-diet="veg">
                     <div class="menu-item-header">
                         <h4 class="menu-item-name">Sip & Paint</h4>
                         <span class="menu-item-line"></span>
@@ -218,7 +225,7 @@
 
                 </div>
                 <!-- Blind Date Book -->
-                <div class="menu-item-card" data-category="experiences">
+                <div class="menu-item-card" data-category="experiences" data-diet="veg">
                     <div class="menu-item-header">
                         <h4 class="menu-item-name">Blind Date Book</h4>
                         <span class="menu-item-line"></span>
@@ -229,9 +236,9 @@
 
                 </div>
                 <!-- Espresso -->
-                <div class="menu-item-card" data-category="coffee">
+                <div class="menu-item-card" data-category="coffee" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Espresso</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Espresso</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹149</span>
                     </div>
@@ -240,9 +247,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Americano -->
-                <div class="menu-item-card" data-category="coffee">
+                <div class="menu-item-card" data-category="coffee" data-diet="veg" data-best="1">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Americano</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Americano <span class="menu-badge menu-badge-best">Bestseller</span></h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹229</span>
                     </div>
@@ -252,9 +259,9 @@
                     </div>
                 </div>
                 <!-- Cappuccino -->
-                <div class="menu-item-card" data-category="coffee">
+                <div class="menu-item-card" data-category="coffee" data-diet="veg" data-best="1">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Cappuccino</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Cappuccino <span class="menu-badge menu-badge-best">Bestseller</span></h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹249</span>
                     </div>
@@ -264,9 +271,9 @@
                             Contains milk</span></div>
                 </div>
                 <!-- Latte -->
-                <div class="menu-item-card" data-category="coffee">
+                <div class="menu-item-card" data-category="coffee" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Latte</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Latte</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹269</span>
                     </div>
@@ -276,9 +283,9 @@
                             Contains milk</span></div>
                 </div>
                 <!-- Mocha -->
-                <div class="menu-item-card" data-category="coffee">
+                <div class="menu-item-card" data-category="coffee" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Mocha</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Mocha</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹299</span>
                     </div>
@@ -289,9 +296,9 @@
                     </div>
                 </div>
                 <!-- Cheesecake Latte -->
-                <div class="menu-item-card" data-category="coffee">
+                <div class="menu-item-card" data-category="coffee" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Cheesecake latte</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Cheesecake latte</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹289</span>
                     </div>
@@ -300,9 +307,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Hazelnut Latte -->
-                <div class="menu-item-card" data-category="coffee">
+                <div class="menu-item-card" data-category="coffee" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Hazelnut latte</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Hazelnut latte</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹289</span>
                     </div>
@@ -311,9 +318,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Caramel Latte -->
-                <div class="menu-item-card" data-category="coffee">
+                <div class="menu-item-card" data-category="coffee" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Caramel latte</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Caramel latte</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹289</span>
                     </div>
@@ -322,9 +329,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Flat White -->
-                <div class="menu-item-card" data-category="coffee">
+                <div class="menu-item-card" data-category="coffee" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Flat white</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Flat white</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹249</span>
                     </div>
@@ -334,9 +341,9 @@
                     </div>
                 </div>
                 <!-- Spanish Latte -->
-                <div class="menu-item-card" data-category="coffee">
+                <div class="menu-item-card" data-category="coffee" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Spanish latte</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Spanish latte</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹299</span>
                     </div>
@@ -348,9 +355,9 @@
                     </div>
                 </div>
                 <!-- Iced Caramel Latte -->
-                <div class="menu-item-card" data-category="coffee">
+                <div class="menu-item-card" data-category="coffee" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Iced caramel latte</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Iced caramel latte</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹289</span>
                     </div>
@@ -360,9 +367,9 @@
                     </div>
                 </div>
                 <!-- Iced Hazelnut Latte -->
-                <div class="menu-item-card" data-category="coffee">
+                <div class="menu-item-card" data-category="coffee" data-diet="veg" data-best="1">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Iced hazelnut latte</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Iced hazelnut latte <span class="menu-badge menu-badge-best">Bestseller</span></h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹289</span>
                     </div>
@@ -372,9 +379,9 @@
                     </div>
                 </div>
                 <!-- Iced Cheesecake Latte -->
-                <div class="menu-item-card" data-category="coffee">
+                <div class="menu-item-card" data-category="coffee" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Iced cheesecake latte</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Iced cheesecake latte</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹289</span>
                     </div>
@@ -383,9 +390,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Iced Americano -->
-                <div class="menu-item-card" data-category="coffee">
+                <div class="menu-item-card" data-category="coffee" data-diet="veg" data-best="1">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Iced Americano</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Iced Americano <span class="menu-badge menu-badge-best">Bestseller</span></h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹229</span>
                     </div>
@@ -395,9 +402,9 @@
                     </div>
                 </div>
                 <!-- Iced Latte -->
-                <div class="menu-item-card" data-category="coffee">
+                <div class="menu-item-card" data-category="coffee" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Iced Latte</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Iced Latte</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹269</span>
                     </div>
@@ -407,9 +414,9 @@
                     </div>
                 </div>
                 <!-- Iced Mocha -->
-                <div class="menu-item-card" data-category="coffee">
+                <div class="menu-item-card" data-category="coffee" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Iced Mocha</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Iced Mocha</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹299</span>
                     </div>
@@ -419,9 +426,9 @@
                     </div>
                 </div>
                 <!-- The Classic Cold Coffee -->
-                <div class="menu-item-card" data-category="coffee">
+                <div class="menu-item-card" data-category="coffee" data-diet="veg" data-best="1">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">The Classic Cold Coffee</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>The Classic Cold Coffee <span class="menu-badge menu-badge-best">Bestseller</span></h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹299</span>
                     </div>
@@ -429,9 +436,9 @@
 
                 </div>
                 <!-- Yuzu Espresso Sparkler -->
-                <div class="menu-item-card" data-category="coffee">
+                <div class="menu-item-card" data-category="coffee" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Yuzu Espresso Sparkler</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Yuzu Espresso Sparkler</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹299</span>
                     </div>
@@ -441,9 +448,9 @@
                     </div>
                 </div>
                 <!-- Iced Coconut Espresso -->
-                <div class="menu-item-card" data-category="coffee">
+                <div class="menu-item-card" data-category="coffee" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Iced Coconut Espresso</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Iced Coconut Espresso</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹299</span>
                     </div>
@@ -453,9 +460,9 @@
                     </div>
                 </div>
                 <!-- Iced Spanish Latte -->
-                <div class="menu-item-card" data-category="coffee">
+                <div class="menu-item-card" data-category="coffee" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Iced Spanish Latte</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Iced Spanish Latte</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹299</span>
                     </div>
@@ -466,9 +473,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Iced Mocha Brown Butter Latte -->
-                <div class="menu-item-card" data-category="coffee">
+                <div class="menu-item-card" data-category="coffee" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Iced Mocha Brown Butter Latte</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Iced Mocha Brown Butter Latte</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹299</span>
                     </div>
@@ -477,9 +484,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Mocha Strawberry Latte -->
-                <div class="menu-item-card" data-category="coffee">
+                <div class="menu-item-card" data-category="coffee" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Mocha Strawberry Latte</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Mocha Strawberry Latte</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹299</span>
                     </div>
@@ -488,9 +495,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Iced Pistachio Dream -->
-                <div class="menu-item-card" data-category="coffee">
+                <div class="menu-item-card" data-category="coffee" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Iced Pistachio Dream</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Iced Pistachio Dream</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹299</span>
                     </div>
@@ -498,9 +505,9 @@
 
                 </div>
                 <!-- The Pistachio Latte -->
-                <div class="menu-item-card" data-category="coffee">
+                <div class="menu-item-card" data-category="coffee" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">The Pistachio Latte</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>The Pistachio Latte</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹299</span>
                     </div>
@@ -508,9 +515,9 @@
 
                 </div>
                 <!-- Espresso Tonic -->
-                <div class="menu-item-card" data-category="coffee">
+                <div class="menu-item-card" data-category="coffee" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Espresso Tonic</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Espresso Tonic</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹299</span>
                     </div>
@@ -518,9 +525,9 @@
 
                 </div>
                 <!-- Iced Velvet Vanilla Matcha -->
-                <div class="menu-item-card" data-category="matcha">
+                <div class="menu-item-card" data-category="matcha" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Iced Velvet Vanilla Matcha</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Iced Velvet Vanilla Matcha</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹299</span>
                     </div>
@@ -529,9 +536,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Hot Velvet Vanilla Matcha -->
-                <div class="menu-item-card" data-category="matcha">
+                <div class="menu-item-card" data-category="matcha" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Hot Velvet Vanilla Matcha</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Hot Velvet Vanilla Matcha</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹299</span>
                     </div>
@@ -540,9 +547,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Iced Strawberry Glow Matcha -->
-                <div class="menu-item-card" data-category="matcha">
+                <div class="menu-item-card" data-category="matcha" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Iced Strawberry Glow Matcha</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Iced Strawberry Glow Matcha</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹299</span>
                     </div>
@@ -551,9 +558,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Iced Coconut Matcha -->
-                <div class="menu-item-card" data-category="matcha">
+                <div class="menu-item-card" data-category="matcha" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Iced Coconut Matcha</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Iced Coconut Matcha</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹299</span>
                     </div>
@@ -561,9 +568,9 @@
 
                 </div>
                 <!-- Iced Matcha -->
-                <div class="menu-item-card" data-category="matcha">
+                <div class="menu-item-card" data-category="matcha" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Iced Matcha</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Iced Matcha</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹299</span>
                     </div>
@@ -571,9 +578,9 @@
 
                 </div>
                 <!-- Classic Hot Chocolate -->
-                <div class="menu-item-card" data-category="frappe-cocoa">
+                <div class="menu-item-card" data-category="frappe-cocoa" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Classic Hot Chocolate</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Classic Hot Chocolate</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹269</span>
                     </div>
@@ -582,9 +589,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Hazelnut Hot Chocolate -->
-                <div class="menu-item-card" data-category="frappe-cocoa">
+                <div class="menu-item-card" data-category="frappe-cocoa" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Hazelnut Hot Chocolate</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Hazelnut Hot Chocolate</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹279</span>
                     </div>
@@ -593,9 +600,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Caramel Hot Chocolate -->
-                <div class="menu-item-card" data-category="frappe-cocoa">
+                <div class="menu-item-card" data-category="frappe-cocoa" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Caramel Hot Chocolate</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Caramel Hot Chocolate</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹279</span>
                     </div>
@@ -604,9 +611,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Hot Chocolate With Marshmallows -->
-                <div class="menu-item-card" data-category="frappe-cocoa">
+                <div class="menu-item-card" data-category="frappe-cocoa" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Hot Chocolate With Marshmallows</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Hot Chocolate With Marshmallows</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹299</span>
                     </div>
@@ -615,9 +622,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Hot Chocolate With Espresso -->
-                <div class="menu-item-card" data-category="frappe-cocoa">
+                <div class="menu-item-card" data-category="frappe-cocoa" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Hot Chocolate With Espresso</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Hot Chocolate With Espresso</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹299</span>
                     </div>
@@ -626,9 +633,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Iced Chocolate -->
-                <div class="menu-item-card" data-category="frappe-cocoa">
+                <div class="menu-item-card" data-category="frappe-cocoa" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Iced Chocolate</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Iced Chocolate</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹269</span>
                     </div>
@@ -637,9 +644,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Iced Chocolate With Espresso -->
-                <div class="menu-item-card" data-category="frappe-cocoa">
+                <div class="menu-item-card" data-category="frappe-cocoa" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Iced Chocolate With Espresso</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Iced Chocolate With Espresso</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹299</span>
                     </div>
@@ -647,9 +654,9 @@
 
                 </div>
                 <!-- Coffee Frappe -->
-                <div class="menu-item-card" data-category="frappe-cocoa">
+                <div class="menu-item-card" data-category="frappe-cocoa" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Coffee Frappe</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Coffee Frappe</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹329</span>
                     </div>
@@ -658,9 +665,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Mocha Frappe -->
-                <div class="menu-item-card" data-category="frappe-cocoa">
+                <div class="menu-item-card" data-category="frappe-cocoa" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Mocha Frappe</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Mocha Frappe</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹349</span>
                     </div>
@@ -669,9 +676,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Nutella Frappe -->
-                <div class="menu-item-card" data-category="frappe-cocoa">
+                <div class="menu-item-card" data-category="frappe-cocoa" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Nutella Frappe</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Nutella Frappe</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹349</span>
                     </div>
@@ -679,9 +686,9 @@
 
                 </div>
                 <!-- Hazelnut Frappe -->
-                <div class="menu-item-card" data-category="frappe-cocoa">
+                <div class="menu-item-card" data-category="frappe-cocoa" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Hazelnut Frappe</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Hazelnut Frappe</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹349</span>
                     </div>
@@ -689,9 +696,9 @@
 
                 </div>
                 <!-- Classic Lemon Iced Tea -->
-                <div class="menu-item-card" data-category="drinks-teas">
+                <div class="menu-item-card" data-category="drinks-teas" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Classic Lemon Iced Tea</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Classic Lemon Iced Tea</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹219</span>
                     </div>
@@ -700,9 +707,9 @@
 
                 </div>
                 <!-- Masala Tea -->
-                <div class="menu-item-card" data-category="drinks-teas">
+                <div class="menu-item-card" data-category="drinks-teas" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Masala Tea</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Masala Tea</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹249</span>
                     </div>
@@ -711,9 +718,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Kashmiri Kahwa Tea -->
-                <div class="menu-item-card" data-category="drinks-teas">
+                <div class="menu-item-card" data-category="drinks-teas" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Kashmiri Kahwa Tea</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Kashmiri Kahwa Tea</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹249</span>
                     </div>
@@ -721,9 +728,9 @@
 
                 </div>
                 <!-- Classic Mint Mojito -->
-                <div class="menu-item-card" data-category="drinks-teas">
+                <div class="menu-item-card" data-category="drinks-teas" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Classic Mint Mojito</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Classic Mint Mojito</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹219</span>
                     </div>
@@ -731,9 +738,9 @@
 
                 </div>
                 <!-- Mumbai Masala Lemonade -->
-                <div class="menu-item-card" data-category="drinks-teas">
+                <div class="menu-item-card" data-category="drinks-teas" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Mumbai Masala Lemonade</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Mumbai Masala Lemonade</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹219</span>
                     </div>
@@ -741,9 +748,9 @@
 
                 </div>
                 <!-- Sparkling Yuzu Spritz -->
-                <div class="menu-item-card" data-category="drinks-teas">
+                <div class="menu-item-card" data-category="drinks-teas" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Sparkling Yuzu Spritz</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Sparkling Yuzu Spritz</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹269</span>
                     </div>
@@ -751,9 +758,9 @@
 
                 </div>
                 <!-- Oreo Milkshake -->
-                <div class="menu-item-card" data-category="drinks-teas">
+                <div class="menu-item-card" data-category="drinks-teas" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Oreo Milkshake</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Oreo Milkshake</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹269</span>
                     </div>
@@ -762,9 +769,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Choco Chips Milkshake -->
-                <div class="menu-item-card" data-category="drinks-teas">
+                <div class="menu-item-card" data-category="drinks-teas" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Choco Chips Milkshake</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Choco Chips Milkshake</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹269</span>
                     </div>
@@ -773,9 +780,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Nutella Cheesecake Milkshake -->
-                <div class="menu-item-card" data-category="drinks-teas">
+                <div class="menu-item-card" data-category="drinks-teas" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Nutella Cheesecake Milkshake</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Nutella Cheesecake Milkshake</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹269</span>
                     </div>
@@ -784,9 +791,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Oreo Cheesecake Milkshake -->
-                <div class="menu-item-card" data-category="drinks-teas">
+                <div class="menu-item-card" data-category="drinks-teas" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Oreo Cheesecake Milkshake</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Oreo Cheesecake Milkshake</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹269</span>
                     </div>
@@ -795,9 +802,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Flavoured Ice Tea -->
-                <div class="menu-item-card" data-category="drinks-teas">
+                <div class="menu-item-card" data-category="drinks-teas" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Flavoured Ice Tea</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Flavoured Ice Tea</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹249</span>
                     </div>
@@ -805,9 +812,9 @@
 
                 </div>
                 <!-- Flavoured Mojito -->
-                <div class="menu-item-card" data-category="drinks-teas">
+                <div class="menu-item-card" data-category="drinks-teas" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Flavoured Mojito</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Flavoured Mojito</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹249</span>
                     </div>
@@ -815,9 +822,9 @@
 
                 </div>
                 <!-- Stress Reliever Tea -->
-                <div class="menu-item-card" data-category="drinks-teas">
+                <div class="menu-item-card" data-category="drinks-teas" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Stress Reliever Tea</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Stress Reliever Tea</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹249</span>
                     </div>
@@ -825,9 +832,9 @@
 
                 </div>
                 <!-- Throat Rescue Tea -->
-                <div class="menu-item-card" data-category="drinks-teas">
+                <div class="menu-item-card" data-category="drinks-teas" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Throat Rescue Tea</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Throat Rescue Tea</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹249</span>
                     </div>
@@ -835,9 +842,9 @@
 
                 </div>
                 <!-- Tropical Espresso Fizz -->
-                <div class="menu-item-card" data-category="drinks-teas">
+                <div class="menu-item-card" data-category="drinks-teas" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Tropical Espresso Fizz</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Tropical Espresso Fizz</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹269</span>
                     </div>
@@ -845,9 +852,9 @@
 
                 </div>
                 <!-- Ruby Rush -->
-                <div class="menu-item-card" data-category="drinks-teas">
+                <div class="menu-item-card" data-category="drinks-teas" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Ruby Rush</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Ruby Rush</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹269</span>
                     </div>
@@ -855,9 +862,9 @@
 
                 </div>
                 <!-- Coke -->
-                <div class="menu-item-card" data-category="drinks-teas">
+                <div class="menu-item-card" data-category="drinks-teas" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Coke</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Coke</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹199</span>
                     </div>
@@ -865,9 +872,9 @@
 
                 </div>
                 <!-- Diet Coke -->
-                <div class="menu-item-card" data-category="drinks-teas">
+                <div class="menu-item-card" data-category="drinks-teas" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Diet Coke</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Diet Coke</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹199</span>
                     </div>
@@ -875,9 +882,9 @@
 
                 </div>
                 <!-- Classic Coke Float -->
-                <div class="menu-item-card" data-category="drinks-teas">
+                <div class="menu-item-card" data-category="drinks-teas" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Classic Coke Float</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Classic Coke Float</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹299</span>
                     </div>
@@ -885,9 +892,9 @@
 
                 </div>
                 <!-- English Breakfast -->
-                <div class="menu-item-card" data-category="breakfast">
+                <div class="menu-item-card" data-category="breakfast" data-diet="nonveg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">English Breakfast</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-nonveg" role="img" aria-label="Non-vegetarian" title="Non-vegetarian"></span>English Breakfast</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹349</span>
                     </div>
@@ -897,9 +904,9 @@
                 </div>
                 
                 <!-- Butter Garlic Sausages -->
-                <div class="menu-item-card" data-category="breakfast">
+                <div class="menu-item-card" data-category="breakfast" data-diet="nonveg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Butter Garlic Sausages</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-nonveg" role="img" aria-label="Non-vegetarian" title="Non-vegetarian"></span>Butter Garlic Sausages</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹249</span>
                     </div>
@@ -907,9 +914,9 @@
 
                 </div>
                 <!-- Classic Cream Cheese Bagel -->
-                <div class="menu-item-card" data-category="breakfast">
+                <div class="menu-item-card" data-category="breakfast" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Classic Cream Cheese Bagel</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Classic Cream Cheese Bagel</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹269</span>
                     </div>
@@ -917,9 +924,9 @@
 
                 </div>
                 <!-- Mushroom & Cream Cheese Bagel -->
-                <div class="menu-item-card" data-category="breakfast">
+                <div class="menu-item-card" data-category="breakfast" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Mushroom & Cream Cheese Bagel</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Mushroom & Cream Cheese Bagel</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹329</span>
                     </div>
@@ -927,9 +934,9 @@
 
                 </div>
                 <!-- Scrambled Egg & Cheese Bagel -->
-                <div class="menu-item-card" data-category="breakfast">
+                <div class="menu-item-card" data-category="breakfast" data-diet="egg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Scrambled Egg & Cheese Bagel</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-egg" role="img" aria-label="Contains egg" title="Contains egg"></span>Scrambled Egg & Cheese Bagel</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹329</span>
                     </div>
@@ -937,9 +944,9 @@
 
                 </div>
                 <!-- Creamy Scrambled Eggs -->
-                <div class="menu-item-card" data-category="breakfast">
+                <div class="menu-item-card" data-category="breakfast" data-diet="egg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Creamy Scrambled Eggs</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-egg" role="img" aria-label="Contains egg" title="Contains egg"></span>Creamy Scrambled Eggs</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹249</span>
                     </div>
@@ -948,9 +955,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Sunny Side Up -->
-                <div class="menu-item-card" data-category="breakfast">
+                <div class="menu-item-card" data-category="breakfast" data-diet="egg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Sunny Side Up</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-egg" role="img" aria-label="Contains egg" title="Contains egg"></span>Sunny Side Up</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹249</span>
                     </div>
@@ -959,9 +966,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Mumbai Masala Omelette -->
-                <div class="menu-item-card" data-category="breakfast">
+                <div class="menu-item-card" data-category="breakfast" data-diet="egg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Mumbai Masala Omelette</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-egg" role="img" aria-label="Contains egg" title="Contains egg"></span>Mumbai Masala Omelette</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹249</span>
                     </div>
@@ -970,9 +977,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Egg Whites Omelette -->
-                <div class="menu-item-card" data-category="breakfast">
+                <div class="menu-item-card" data-category="breakfast" data-diet="egg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Egg Whites Omelette <span class="menu-badge">Protein Packed</span>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-egg" role="img" aria-label="Contains egg" title="Contains egg"></span>Egg Whites Omelette <span class="menu-badge">Protein Packed</span>
                         </h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹249</span>
@@ -983,9 +990,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Chicken And Cheese Omelette -->
-                <div class="menu-item-card" data-category="breakfast">
+                <div class="menu-item-card" data-category="breakfast" data-diet="nonveg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Chicken And Cheese Omelette</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-nonveg" role="img" aria-label="Non-vegetarian" title="Non-vegetarian"></span>Chicken And Cheese Omelette</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹299</span>
                     </div>
@@ -994,9 +1001,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Loaded Pancake Stacker -->
-                <div class="menu-item-card" data-category="breakfast">
+                <div class="menu-item-card" data-category="breakfast" data-diet="nonveg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Loaded Pancake Stacker</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-nonveg" role="img" aria-label="Non-vegetarian" title="Non-vegetarian"></span>Loaded Pancake Stacker</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹429</span>
                     </div>
@@ -1004,9 +1011,9 @@
 
                 </div>
                 <!-- Crispy Fried Chicken Wings -->
-                <div class="menu-item-card" data-category="bites-croissants">
+                <div class="menu-item-card" data-category="bites-croissants" data-diet="nonveg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Crispy Fried Chicken Wings</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-nonveg" role="img" aria-label="Non-vegetarian" title="Non-vegetarian"></span>Crispy Fried Chicken Wings</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹279</span>
                     </div>
@@ -1015,9 +1022,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Crispy Fried Hot Wings -->
-                <div class="menu-item-card" data-category="bites-croissants">
+                <div class="menu-item-card" data-category="bites-croissants" data-diet="nonveg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Crispy Fried Hot Wings</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-nonveg" role="img" aria-label="Non-vegetarian" title="Non-vegetarian"></span>Crispy Fried Hot Wings</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹279</span>
                     </div>
@@ -1026,9 +1033,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Classic Chicken Popcorn -->
-                <div class="menu-item-card" data-category="bites-croissants">
+                <div class="menu-item-card" data-category="bites-croissants" data-diet="nonveg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Classic Chicken Popcorn</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-nonveg" role="img" aria-label="Non-vegetarian" title="Non-vegetarian"></span>Classic Chicken Popcorn</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹269</span>
                     </div>
@@ -1037,9 +1044,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Chicken Pops & Chips -->
-                <div class="menu-item-card" data-category="bites-croissants">
+                <div class="menu-item-card" data-category="bites-croissants" data-diet="nonveg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Chicken Pops & Chips</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-nonveg" role="img" aria-label="Non-vegetarian" title="Non-vegetarian"></span>Chicken Pops & Chips</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹299</span>
                     </div>
@@ -1048,9 +1055,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Seasoned Fries -->
-                <div class="menu-item-card" data-category="bites-croissants">
+                <div class="menu-item-card" data-category="bites-croissants" data-diet="veg" data-best="1">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Seasoned Fries <span class="menu-badge">gf</span></h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Seasoned Fries <span class="menu-badge">gf</span> <span class="menu-badge menu-badge-best">Bestseller</span></h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹249</span>
                     </div>
@@ -1060,9 +1067,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Classic Fries -->
-                <div class="menu-item-card" data-category="bites-croissants">
+                <div class="menu-item-card" data-category="bites-croissants" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Classic Fries <span class="menu-badge">gf</span></h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Classic Fries <span class="menu-badge">gf</span></h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹229</span>
                     </div>
@@ -1071,9 +1078,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Classic Sweet Potato Fries -->
-                <div class="menu-item-card" data-category="bites-croissants">
+                <div class="menu-item-card" data-category="bites-croissants" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Classic Sweet Potato Fries <span class="menu-badge">gf</span></h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Classic Sweet Potato Fries <span class="menu-badge">gf</span></h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹299</span>
                     </div>
@@ -1082,9 +1089,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Thai Chilli Potatoes -->
-                <div class="menu-item-card" data-category="bites-croissants">
+                <div class="menu-item-card" data-category="bites-croissants" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Thai Chilli Potatoes <span class="menu-badge">gf</span></h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Thai Chilli Potatoes <span class="menu-badge">gf</span></h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹269</span>
                     </div>
@@ -1094,9 +1101,9 @@
 
                 </div>
                 <!-- Pepper Cheese Cigars -->
-                <div class="menu-item-card" data-category="bites-croissants">
+                <div class="menu-item-card" data-category="bites-croissants" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Pepper Cheese Cigars <span class="menu-badge">j</span></h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Pepper Cheese Cigars</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹299</span>
                     </div>
@@ -1105,9 +1112,9 @@
 
                 </div>
                 <!-- Truffle Parmesan Fries -->
-                <div class="menu-item-card" data-category="bites-croissants">
+                <div class="menu-item-card" data-category="bites-croissants" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Truffle Parmesan Fries</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Truffle Parmesan Fries</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹299</span>
                     </div>
@@ -1116,9 +1123,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Kokomo Special Loaded Nachos -->
-                <div class="menu-item-card" data-category="bites-croissants">
+                <div class="menu-item-card" data-category="bites-croissants" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Kokomo Special Loaded Nachos <span class="menu-badge">gf</span></h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Kokomo Special Loaded Nachos <span class="menu-badge">gf</span></h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹299</span>
                     </div>
@@ -1129,9 +1136,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Cajun Spiced Chicken Wings -->
-                <div class="menu-item-card" data-category="bites-croissants">
+                <div class="menu-item-card" data-category="bites-croissants" data-diet="nonveg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Cajun Spiced Chicken Wings</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-nonveg" role="img" aria-label="Non-vegetarian" title="Non-vegetarian"></span>Cajun Spiced Chicken Wings</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹279</span>
                     </div>
@@ -1140,9 +1147,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Peri Peri Chicken Hummus & Pita -->
-                <div class="menu-item-card" data-category="bites-croissants">
+                <div class="menu-item-card" data-category="bites-croissants" data-diet="nonveg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Peri Peri Chicken Hummus & Pita</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-nonveg" role="img" aria-label="Non-vegetarian" title="Non-vegetarian"></span>Peri Peri Chicken Hummus & Pita</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹319</span>
                     </div>
@@ -1151,9 +1158,9 @@
 
                 </div>
                 <!-- Garlic Chicken Hummus & Pita -->
-                <div class="menu-item-card" data-category="bites-croissants">
+                <div class="menu-item-card" data-category="bites-croissants" data-diet="nonveg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Garlic Chicken Hummus & Pita</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-nonveg" role="img" aria-label="Non-vegetarian" title="Non-vegetarian"></span>Garlic Chicken Hummus & Pita</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹319</span>
                     </div>
@@ -1162,9 +1169,9 @@
 
                 </div>
                 <!-- Loaded Chicken Nachos -->
-                <div class="menu-item-card" data-category="bites-croissants">
+                <div class="menu-item-card" data-category="bites-croissants" data-diet="nonveg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Loaded Chicken Nachos</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-nonveg" role="img" aria-label="Non-vegetarian" title="Non-vegetarian"></span>Loaded Chicken Nachos</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹349</span>
                     </div>
@@ -1172,9 +1179,9 @@
 
                 </div>
                 <!-- Loaded Chicken Fries -->
-                <div class="menu-item-card" data-category="bites-croissants">
+                <div class="menu-item-card" data-category="bites-croissants" data-diet="nonveg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Loaded Chicken Fries</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-nonveg" role="img" aria-label="Non-vegetarian" title="Non-vegetarian"></span>Loaded Chicken Fries</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹299</span>
                     </div>
@@ -1182,9 +1189,9 @@
 
                 </div>
                 <!-- Butter Croissant -->
-                <div class="menu-item-card" data-category="bites-croissants">
+                <div class="menu-item-card" data-category="bites-croissants" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Butter Croissant</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Butter Croissant</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹249</span>
                     </div>
@@ -1193,9 +1200,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Nutella Croissant -->
-                <div class="menu-item-card" data-category="bites-croissants">
+                <div class="menu-item-card" data-category="bites-croissants" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Nutella Croissant</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Nutella Croissant</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹279</span>
                     </div>
@@ -1204,9 +1211,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Chocolate Croissant -->
-                <div class="menu-item-card" data-category="bites-croissants">
+                <div class="menu-item-card" data-category="bites-croissants" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Chocolate Croissant</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Chocolate Croissant</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹279</span>
                     </div>
@@ -1215,9 +1222,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Chicken Ham & Cheese Croissant -->
-                <div class="menu-item-card" data-category="bites-croissants">
+                <div class="menu-item-card" data-category="bites-croissants" data-diet="nonveg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Chicken Ham & Cheese Croissant</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-nonveg" role="img" aria-label="Non-vegetarian" title="Non-vegetarian"></span>Chicken Ham & Cheese Croissant</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹369</span>
                     </div>
@@ -1225,9 +1232,9 @@
 
                 </div>
                 <!-- Loaded Fries -->
-                <div class="menu-item-card" data-category="bites-croissants">
+                <div class="menu-item-card" data-category="bites-croissants" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Loaded Fries</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Loaded Fries</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹299</span>
                     </div>
@@ -1235,9 +1242,9 @@
 
                 </div>
                 <!-- Hummus & Pita -->
-                <div class="menu-item-card" data-category="bites-croissants">
+                <div class="menu-item-card" data-category="bites-croissants" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Hummus &amp; Pita</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Hummus &amp; Pita</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹269</span>
                     </div>
@@ -1245,9 +1252,9 @@
 
                 </div>
                 <!-- Nachos & Hummus -->
-                <div class="menu-item-card" data-category="bites-croissants">
+                <div class="menu-item-card" data-category="bites-croissants" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Nachos &amp; Hummus</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Nachos &amp; Hummus</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹299</span>
                     </div>
@@ -1255,9 +1262,9 @@
 
                 </div>
                 <!-- Falafel (6 pcs) with Hummus -->
-                <div class="menu-item-card" data-category="bites-croissants">
+                <div class="menu-item-card" data-category="bites-croissants" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Falafel (6 pcs) with Hummus</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Falafel (6 pcs) with Hummus</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹299</span>
                     </div>
@@ -1265,9 +1272,9 @@
 
                 </div>
                 <!-- Vada Pav Sliders -->
-                <div class="menu-item-card" data-category="bites-croissants">
+                <div class="menu-item-card" data-category="bites-croissants" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Vada Pav Sliders</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Vada Pav Sliders</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹269</span>
                     </div>
@@ -1275,9 +1282,9 @@
 
                 </div>
                 <!-- Basil Pesto Panini -->
-                <div class="menu-item-card" data-category="mains">
+                <div class="menu-item-card" data-category="mains" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Basil Pesto Panini</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Basil Pesto Panini</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹329</span>
                     </div>
@@ -1286,9 +1293,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Smoked Chicken Sandwich -->
-                <div class="menu-item-card" data-category="mains">
+                <div class="menu-item-card" data-category="mains" data-diet="nonveg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Smoked Chicken Sandwich</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-nonveg" role="img" aria-label="Non-vegetarian" title="Non-vegetarian"></span>Smoked Chicken Sandwich</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹349</span>
                     </div>
@@ -1297,9 +1304,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Spicy Cottage Cheese Sandwich -->
-                <div class="menu-item-card" data-category="mains">
+                <div class="menu-item-card" data-category="mains" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Spicy Cottage Cheese Sandwich</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Spicy Cottage Cheese Sandwich</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹349</span>
                     </div>
@@ -1308,9 +1315,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Grilled Chicken Sandwich -->
-                <div class="menu-item-card" data-category="mains">
+                <div class="menu-item-card" data-category="mains" data-diet="nonveg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Grilled Chicken Sandwich</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-nonveg" role="img" aria-label="Non-vegetarian" title="Non-vegetarian"></span>Grilled Chicken Sandwich</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹349</span>
                     </div>
@@ -1319,9 +1326,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Grilled Veggie Sandwich -->
-                <div class="menu-item-card" data-category="mains">
+                <div class="menu-item-card" data-category="mains" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Grilled Veggie Sandwich</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Grilled Veggie Sandwich</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹329</span>
                     </div>
@@ -1330,9 +1337,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Mediterranean Salad -->
-                <div class="menu-item-card" data-category="mains">
+                <div class="menu-item-card" data-category="mains" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Mediterranean Salad</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Mediterranean Salad</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹299</span>
                     </div>
@@ -1341,9 +1348,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Falafel & Hummus Bowl -->
-                <div class="menu-item-card" data-category="mains">
+                <div class="menu-item-card" data-category="mains" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Falafel & Hummus Bowl</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Falafel & Hummus Bowl</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹369</span>
                     </div>
@@ -1351,9 +1358,9 @@
 
                 </div>
                 <!-- Alfredo Pasta -->
-                <div class="menu-item-card" data-category="mains">
+                <div class="menu-item-card" data-category="mains" data-diet="veg" data-best="1">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Alfredo Pasta</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Alfredo Pasta <span class="menu-badge menu-badge-best">Bestseller</span></h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹399</span>
                     </div>
@@ -1362,9 +1369,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Pesto Pasta -->
-                <div class="menu-item-card" data-category="mains">
+                <div class="menu-item-card" data-category="mains" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Pesto Pasta</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Pesto Pasta</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹399</span>
                     </div>
@@ -1373,9 +1380,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Pink Sauce Pasta -->
-                <div class="menu-item-card" data-category="mains">
+                <div class="menu-item-card" data-category="mains" data-diet="veg" data-best="1">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Pink Sauce Pasta</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Pink Sauce Pasta <span class="menu-badge menu-badge-best">Bestseller</span></h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹399</span>
                     </div>
@@ -1384,9 +1391,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Arrabbiata Pasta -->
-                <div class="menu-item-card" data-category="mains">
+                <div class="menu-item-card" data-category="mains" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Arrabbiata Pasta</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Arrabbiata Pasta</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹399</span>
                     </div>
@@ -1395,9 +1402,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Creamy Mushroom Alfredo Spaghetti -->
-                <div class="menu-item-card" data-category="mains">
+                <div class="menu-item-card" data-category="mains" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Creamy Mushroom Alfredo Spaghetti</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Creamy Mushroom Alfredo Spaghetti</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹399</span>
                     </div>
@@ -1406,9 +1413,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Chicken Shawarma Bowl -->
-                <div class="menu-item-card" data-category="mains">
+                <div class="menu-item-card" data-category="mains" data-diet="nonveg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Chicken Shawarma Bowl</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-nonveg" role="img" aria-label="Non-vegetarian" title="Non-vegetarian"></span>Chicken Shawarma Bowl</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹369</span>
                     </div>
@@ -1416,9 +1423,9 @@
 
                 </div>
                 <!-- Cacio E Pepe Pasta -->
-                <div class="menu-item-card" data-category="mains">
+                <div class="menu-item-card" data-category="mains" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Cacio E Pepe Pasta</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Cacio E Pepe Pasta</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹399</span>
                     </div>
@@ -1426,9 +1433,9 @@
 
                 </div>
                 <!-- Garlic Chilli Aglio Olio -->
-                <div class="menu-item-card" data-category="mains">
+                <div class="menu-item-card" data-category="mains" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Garlic Chilli Aglio Olio</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Garlic Chilli Aglio Olio</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹399</span>
                     </div>
@@ -1436,9 +1443,9 @@
 
                 </div>
                 <!-- New York Cheesecake -->
-                <div class="menu-item-card" data-category="desserts">
+                <div class="menu-item-card" data-category="desserts" data-diet="egg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">New York Cheesecake</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-egg" role="img" aria-label="Contains egg" title="Contains egg"></span>New York Cheesecake</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹299</span>
                     </div>
@@ -1447,9 +1454,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Nutella Cheesecake -->
-                <div class="menu-item-card" data-category="desserts">
+                <div class="menu-item-card" data-category="desserts" data-diet="egg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Nutella Cheesecake</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-egg" role="img" aria-label="Contains egg" title="Contains egg"></span>Nutella Cheesecake</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹349</span>
                     </div>
@@ -1458,9 +1465,9 @@
                             Customisable</span></div>
                 </div>
                 <!-- Affogato -->
-                <div class="menu-item-card" data-category="desserts">
+                <div class="menu-item-card" data-category="desserts" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Affogato</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Affogato</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹199</span>
                     </div>
@@ -1468,9 +1475,9 @@
 
                 </div>
                 <!-- World's Best Chocolate Cake -->
-                <div class="menu-item-card" data-category="desserts">
+                <div class="menu-item-card" data-category="desserts" data-diet="egg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">World's Best Chocolate Cake <span
+                        <h4 class="menu-item-name"><span class="diet-dot diet-egg" role="img" aria-label="Contains egg" title="Contains egg"></span>World's Best Chocolate Cake <span
                                 class="menu-badge">Gluten-free</span> <span class="menu-badge">No Flour</span> <span
                                 class="menu-badge">Egg-containing</span></h4>
                         <span class="menu-item-line"></span>
@@ -1482,9 +1489,9 @@
 
                 </div>
                 <!-- Cinnamon Roll -->
-                <div class="menu-item-card" data-category="desserts">
+                <div class="menu-item-card" data-category="desserts" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Honey Glazed Cinnamon Roll</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Honey Glazed Cinnamon Roll</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹219</span>
                     </div>
@@ -1492,9 +1499,9 @@
 
                 </div>
                 <!-- Honey Butter Pancakes -->
-                <div class="menu-item-card" data-category="desserts">
+                <div class="menu-item-card" data-category="desserts" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Honey Butter Pancakes</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Honey Butter Pancakes</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹259</span>
                     </div>
@@ -1502,9 +1509,9 @@
 
                 </div>
                 <!-- Belgian Dark Chocolate Pancakes -->
-                <div class="menu-item-card" data-category="desserts">
+                <div class="menu-item-card" data-category="desserts" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Belgian Dark Chocolate Pancakes</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Belgian Dark Chocolate Pancakes</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹259</span>
                     </div>
@@ -1512,9 +1519,9 @@
 
                 </div>
                 <!-- Berry Pancakes -->
-                <div class="menu-item-card" data-category="desserts">
+                <div class="menu-item-card" data-category="desserts" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Berry Pancakes</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Berry Pancakes</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹259</span>
                     </div>
@@ -1522,9 +1529,9 @@
 
                 </div>
                 <!-- Belgian Milk Chocolate Pancakes -->
-                <div class="menu-item-card" data-category="desserts">
+                <div class="menu-item-card" data-category="desserts" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Belgian Milk Chocolate Pancakes</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Belgian Milk Chocolate Pancakes</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹259</span>
                     </div>
@@ -1532,9 +1539,9 @@
 
                 </div>
                 <!-- Nutella Bombolini -->
-                <div class="menu-item-card" data-category="desserts">
+                <div class="menu-item-card" data-category="desserts" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Nutella Bombolini</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Nutella Bombolini</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹199</span>
                     </div>
@@ -1542,9 +1549,9 @@
 
                 </div>
                 <!-- Lotus Biscoff Cinnamon Roll -->
-                <div class="menu-item-card" data-category="desserts">
+                <div class="menu-item-card" data-category="desserts" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Lotus Biscoff Cinnamon Roll</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Lotus Biscoff Cinnamon Roll</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹269</span>
                     </div>
@@ -1552,9 +1559,9 @@
 
                 </div>
                 <!-- Cinnamon Nutella Roll -->
-                <div class="menu-item-card" data-category="desserts">
+                <div class="menu-item-card" data-category="desserts" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Cinnamon Nutella Roll</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Cinnamon Nutella Roll</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹269</span>
                     </div>
@@ -1562,9 +1569,9 @@
 
                 </div>
                 <!-- Bisleri Small Bottle -->
-                <div class="menu-item-card" data-category="addons">
+                <div class="menu-item-card" data-category="addons" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Bisleri Small Bottle</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Bisleri Small Bottle</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹39</span>
                     </div>
@@ -1572,19 +1579,19 @@
 
                 </div>
                 <!-- Nutella Pancakes -->
-                <div class="menu-item-card" data-category="addons">
+                <div class="menu-item-card" data-category="desserts" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Nutella Pancakes</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Nutella Pancakes</h4>
                         <span class="menu-item-line"></span>
-                        <span class="menu-item-price">₹259</span>
+                        <span class="menu-item-price">₹289</span>
                     </div>
                     <p class="menu-item-desc">Fluffy Nutella Pancakes served with sweet toppings. Serves 1. Contains milk, nuts.</p>
 
                 </div>
                 <!-- Crunchy Chilli Crisp -->
-                <div class="menu-item-card" data-category="addons">
+                <div class="menu-item-card" data-category="addons" data-diet="veg">
                     <div class="menu-item-header">
-                        <h4 class="menu-item-name">Crunchy Chilli Crisp</h4>
+                        <h4 class="menu-item-name"><span class="diet-dot diet-veg" role="img" aria-label="Vegetarian" title="Vegetarian"></span>Crunchy Chilli Crisp</h4>
                         <span class="menu-item-line"></span>
                         <span class="menu-item-price">₹49</span>
                     </div>
@@ -1608,7 +1615,7 @@
                 <!-- Card 1 -->
                 <div class="featured-card reveal-on-scroll">
                     <div class="feat-img-wrapper">
-                        <img loading="lazy" decoding="async" src="assets/images/media__1779297701970.jpg" alt="Kokomo Loaded Fries"
+                        <img loading="lazy" decoding="async" src="assets/images/media__1779297701970.webp" alt="Kokomo Loaded Fries"
                             class="feat-card-img">
                         <div class="feat-card-badge">Must Try</div>
                     </div>
@@ -1623,7 +1630,7 @@
                 <!-- Card 2 -->
                 <div class="featured-card reveal-on-scroll delay-1">
                     <div class="feat-img-wrapper">
-                        <img loading="lazy" decoding="async" src="assets/images/media__1779297701599.jpg" alt="Signature Latte Art"
+                        <img loading="lazy" decoding="async" src="assets/images/media__1779297701599.webp" alt="Signature Latte Art"
                             class="feat-card-img">
                         <div class="feat-card-badge">Popular</div>
                     </div>
@@ -1638,7 +1645,7 @@
                 <!-- Card 3 -->
                 <div class="featured-card reveal-on-scroll delay-2">
                     <div class="feat-img-wrapper">
-                        <img loading="lazy" decoding="async" src="assets/images/media__1779297184225.jpg" alt="Signature Nutella Shake"
+                        <img loading="lazy" decoding="async" src="assets/images/media__1779297184225.webp" alt="Signature Nutella Shake"
                             class="feat-card-img">
                         <div class="feat-card-badge">Sweet</div>
                     </div>
@@ -1653,7 +1660,7 @@
                 <!-- Card 4 -->
                 <div class="featured-card reveal-on-scroll delay-3">
                     <div class="feat-img-wrapper">
-                        <img loading="lazy" decoding="async" src="assets/images/media__1779297685321.jpg" alt="Velvety Cheesecake"
+                        <img loading="lazy" decoding="async" src="assets/images/media__1779297685321.webp" alt="Velvety Cheesecake"
                             class="feat-card-img">
                         <div class="feat-card-badge">Seasonal</div>
                     </div>
@@ -1681,7 +1688,7 @@
             <div class="gallery-masonry reveal-on-scroll">
                 <!-- Item 1 -->
                 <div class="gallery-item" data-index="0">
-                    <img fetchpriority="high" decoding="async" src="assets/images/media__1779297184171.jpg" alt="Cafe Kokomo Signature Cup and Loaded Fries">
+                    <img fetchpriority="high" decoding="async" src="assets/images/media__1779297184171.webp" alt="Cafe Kokomo Signature Cup and Loaded Fries">
                     <div class="gallery-hover-overlay">
                         <i data-lucide="zoom-in"></i>
                         <span>View Frame</span>
@@ -1689,7 +1696,7 @@
                 </div>
                 <!-- Item 2 -->
                 <div class="gallery-item" data-index="1">
-                    <img loading="lazy" decoding="async" src="assets/images/media__1779297184177.jpg"
+                    <img loading="lazy" decoding="async" src="assets/images/media__1779297184177.webp"
                         alt="Espresso Pouring on Vanilla Ice Cream (Affogato)">
                     <div class="gallery-hover-overlay">
                         <i data-lucide="zoom-in"></i>
@@ -1698,7 +1705,7 @@
                 </div>
                 <!-- Item 3 -->
                 <div class="gallery-item" data-index="2">
-                    <img loading="lazy" decoding="async" src="assets/images/media__1779297184181.jpg" alt="Minimalist Black and White Dining Seating">
+                    <img loading="lazy" decoding="async" src="assets/images/media__1779297184181.webp" alt="Minimalist Black and White Dining Seating">
                     <div class="gallery-hover-overlay">
                         <i data-lucide="zoom-in"></i>
                         <span>View Frame</span>
@@ -1706,7 +1713,7 @@
                 </div>
                 <!-- Item 4 -->
                 <div class="gallery-item" data-index="3">
-                    <img loading="lazy" decoding="async" src="assets/images/media__1779297184225.jpg" alt="Hummus Dip Platter with Colored Nacho Chips">
+                    <img loading="lazy" decoding="async" src="assets/images/media__1779297184225.webp" alt="Hummus Dip Platter with Colored Nacho Chips">
                     <div class="gallery-hover-overlay">
                         <i data-lucide="zoom-in"></i>
                         <span>View Frame</span>
@@ -1714,7 +1721,7 @@
                 </div>
                 <!-- Item 5 -->
                 <div class="gallery-item" data-index="4">
-                    <img loading="lazy" decoding="async" src="assets/images/media__1779297685318.jpg"
+                    <img loading="lazy" decoding="async" src="assets/images/media__1779297685318.webp"
                         alt="Nutella Milkshakes with Dripping Chocolate Rim">
                     <div class="gallery-hover-overlay">
                         <i data-lucide="zoom-in"></i>
@@ -1723,7 +1730,7 @@
                 </div>
                 <!-- Item 6 -->
                 <div class="gallery-item" data-index="5">
-                    <img loading="lazy" decoding="async" src="assets/images/media__1779297685321.jpg" alt="Schweppes Tonic Pour on Espresso Base">
+                    <img loading="lazy" decoding="async" src="assets/images/media__1779297685321.webp" alt="Schweppes Tonic Pour on Espresso Base">
                     <div class="gallery-hover-overlay">
                         <i data-lucide="zoom-in"></i>
                         <span>View Frame</span>
@@ -1731,7 +1738,7 @@
                 </div>
                 <!-- Item 7 -->
                 <div class="gallery-item" data-index="6">
-                    <img loading="lazy" decoding="async" src="assets/images/media__1779297685323.jpg"
+                    <img loading="lazy" decoding="async" src="assets/images/media__1779297685323.webp"
                         alt="Baked Cheesecake Slice next to Cafe Kokomo Bookmark">
                     <div class="gallery-hover-overlay">
                         <i data-lucide="zoom-in"></i>
@@ -1740,7 +1747,7 @@
                 </div>
                 <!-- Item 8 -->
                 <div class="gallery-item" data-index="7">
-                    <img loading="lazy" decoding="async" src="assets/images/media__1779297685327.jpg" alt="Crispy Butter Croissant and Espresso Coffee">
+                    <img loading="lazy" decoding="async" src="assets/images/media__1779297685327.webp" alt="Crispy Butter Croissant and Espresso Coffee">
                     <div class="gallery-hover-overlay">
                         <i data-lucide="zoom-in"></i>
                         <span>View Frame</span>
@@ -1748,7 +1755,7 @@
                 </div>
                 <!-- Item 9 -->
                 <div class="gallery-item" data-index="8">
-                    <img loading="lazy" decoding="async" src="assets/images/media__1779297685430.jpg" alt="Elegant Line Art Wall Mural with Seating">
+                    <img loading="lazy" decoding="async" src="assets/images/media__1779297685430.webp" alt="Elegant Line Art Wall Mural with Seating">
                     <div class="gallery-hover-overlay">
                         <i data-lucide="zoom-in"></i>
                         <span>View Frame</span>
@@ -1756,7 +1763,7 @@
                 </div>
                 <!-- Item 10 -->
                 <div class="gallery-item" data-index="9">
-                    <img loading="lazy" decoding="async" src="assets/images/media__1779297701599.jpg"
+                    <img loading="lazy" decoding="async" src="assets/images/media__1779297701599.webp"
                         alt="Smooth Latte Art Leaf Design Held by Barista">
                     <div class="gallery-hover-overlay">
                         <i data-lucide="zoom-in"></i>
@@ -1765,7 +1772,7 @@
                 </div>
                 <!-- Item 11 -->
                 <div class="gallery-item" data-index="10">
-                    <img loading="lazy" decoding="async" src="assets/images/media__1779297701966.jpg"
+                    <img loading="lazy" decoding="async" src="assets/images/media__1779297701966.webp"
                         alt="Mediterranean Falafel and Hummus Meal Platter">
                     <div class="gallery-hover-overlay">
                         <i data-lucide="zoom-in"></i>
@@ -1774,7 +1781,7 @@
                 </div>
                 <!-- Item 12 -->
                 <div class="gallery-item" data-index="11">
-                    <img loading="lazy" decoding="async" src="assets/images/media__1779297701970.jpg"
+                    <img loading="lazy" decoding="async" src="assets/images/media__1779297701970.webp"
                         alt="Loaded Fries Drizzled with Rich White Cream Sauce">
                     <div class="gallery-hover-overlay">
                         <i data-lucide="zoom-in"></i>
@@ -2056,37 +2063,6 @@
                         </div>
                     </div>
 
-                    <!-- Review 7: Nadiya siddiqui -->
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-info">
-                                <img loading="lazy" decoding="async" src="assets/users/7.png" alt="Nadiya siddiqui Profile" class="reviewer-avatar">
-                                <div class="reviewer-meta">
-                                    <h4 class="reviewer-name">Nadiya siddiqui</h4>
-                                    <p class="reviewer-stats">12 reviews &middot; 1 photo</p>
-                                </div>
-                            </div>
-                            <button class="review-menu-btn" aria-label="Review Actions">
-                                <i data-lucide="more-vertical"></i>
-                            </button>
-                        </div>
-                        <div class="review-rating-row">
-                            <div class="stars">
-                                <i data-lucide="star" class="star-icon filled"></i>
-                                <i data-lucide="star" class="star-icon filled"></i>
-                                <i data-lucide="star" class="star-icon filled"></i>
-                                <i data-lucide="star" class="star-icon filled"></i>
-                                <i data-lucide="star" class="star-icon filled"></i>
-                            </div>
-                            <span class="review-date">7 months ago</span>
-                        </div>
-                        <div class="review-body">
-                            <p>The food here was so amazing and so rich in quality as well tried matcha for the first
-                                time didn't thought I would like but I did like and craving it since then the staff is
-                                very kind and helpful the dumpling was so so good must try the only thing was the the
-                                wait time was alot but was worth it after we tasted</p>
-                        </div>
-                    </div>
                 </div>
 
                 <!-- Group 2 (Exact Duplicate for Seamless Scrolling) -->
@@ -2280,37 +2256,6 @@
                         </div>
                     </div>
 
-                    <!-- Review 7: Nadiya siddiqui -->
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-info">
-                                <img loading="lazy" decoding="async" src="assets/users/7.png" alt="Nadiya siddiqui Profile" class="reviewer-avatar">
-                                <div class="reviewer-meta">
-                                    <h4 class="reviewer-name">Nadiya siddiqui</h4>
-                                    <p class="reviewer-stats">12 reviews &middot; 1 photo</p>
-                                </div>
-                            </div>
-                            <button class="review-menu-btn" aria-label="Review Actions">
-                                <i data-lucide="more-vertical"></i>
-                            </button>
-                        </div>
-                        <div class="review-rating-row">
-                            <div class="stars">
-                                <i data-lucide="star" class="star-icon filled"></i>
-                                <i data-lucide="star" class="star-icon filled"></i>
-                                <i data-lucide="star" class="star-icon filled"></i>
-                                <i data-lucide="star" class="star-icon filled"></i>
-                                <i data-lucide="star" class="star-icon filled"></i>
-                            </div>
-                            <span class="review-date">7 months ago</span>
-                        </div>
-                        <div class="review-body">
-                            <p>The food here was so amazing and so rich in quality as well tried matcha for the first
-                                time didn't thought I would like but I did like and craving it since then the staff is
-                                very kind and helpful the dumpling was so so good must try the only thing was the the
-                                wait time was alot but was worth it after we tasted</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -2337,22 +2282,22 @@
                     <p class="insta-desc">Follow our Instagram journey for aesthetic captures, fresh brews, and upcoming
                         community meetups.</p>
                     <a href="https://www.instagram.com/cafekokomo" target="_blank" class="btn btn-insta">
-                        <img loading="lazy" decoding="async" src="assets/images/ig.png" alt="Instagram" class="insta-btn-icon">
+                        <img loading="lazy" decoding="async" src="assets/images/ig.webp" alt="Instagram" class="insta-btn-icon">
                         <span>Follow @cafekokomo</span>
                     </a>
                 </div>
                 <div class="insta-preview-grid">
                     <div class="insta-preview-card">
-                        <img loading="lazy" decoding="async" src="assets/images/media__1779297685327.jpg" alt="Instagram Post Croissant">
+                        <img loading="lazy" decoding="async" src="assets/images/media__1779297685327.webp" alt="Instagram Post Croissant">
                     </div>
                     <div class="insta-preview-card">
-                        <img loading="lazy" decoding="async" src="assets/images/media__1779297184177.jpg" alt="Instagram Post Affogato">
+                        <img loading="lazy" decoding="async" src="assets/images/media__1779297184177.webp" alt="Instagram Post Affogato">
                     </div>
                     <div class="insta-preview-card">
-                        <img loading="lazy" decoding="async" src="assets/images/media__1779297184225.jpg" alt="Instagram Post Hummus Dip">
+                        <img loading="lazy" decoding="async" src="assets/images/media__1779297184225.webp" alt="Instagram Post Hummus Dip">
                     </div>
                     <div class="insta-preview-card">
-                        <img loading="lazy" decoding="async" src="assets/images/media__1779297701970.jpg" alt="Instagram Post Loaded Fries">
+                        <img loading="lazy" decoding="async" src="assets/images/media__1779297701970.webp" alt="Instagram Post Loaded Fries">
                     </div>
                 </div>
             </div>
@@ -2413,6 +2358,7 @@
                         <p class="footer-info">Shivaji Road, near Vakola Bridge,</p>
                         <p class="footer-info">Santacruz East, Mumbai,</p>
                         <p class="footer-info">Maharashtra 400055</p>
+                        <p class="footer-info footer-note">Staying at <a href="https://napmanorhostels.com/" target="_blank" rel="noopener">Nap Manor Hostels</a>? We're an 11-minute walk away.</p>
                     </a>
                 </div>
 

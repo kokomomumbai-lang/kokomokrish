@@ -2668,3 +2668,147 @@ img {
     fill: var(--color-text-primary);
     stroke: var(--color-text-primary);
 }
+/* ==========================================================================
+   OPEN / CLOSED BADGE, DIET DOTS, MENU BADGES (Oct 2026)
+   ========================================================================== */
+.hero-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 16px;
+    margin: -20px auto 30px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+}
+
+.hero-status:empty {
+    display: none;
+}
+
+.hero-status::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.hero-status.is-open::before {
+    background: #3BB273;
+    box-shadow: 0 0 0 0 rgba(59, 178, 115, 0.6);
+    animation: statusPulse 2s infinite;
+}
+
+.hero-status.is-closing::before {
+    background: #F2A93B;
+}
+
+@keyframes statusPulse {
+    70% { box-shadow: 0 0 0 8px rgba(59, 178, 115, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(59, 178, 115, 0); }
+}
+
+.hero-content .fade-in-element:nth-child(5) {
+    animation-delay: 1s;
+}
+
+.diet-dot {
+    display: inline-block;
+    position: relative;
+    flex-shrink: 0;
+    width: 12px;
+    height: 12px;
+    margin-right: 8px;
+    border: 1.5px solid currentColor;
+    border-radius: 2px;
+    vertical-align: -1px;
+}
+
+.diet-dot::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.diet-veg { color: #1E8E3E; }
+.diet-egg { color: #D49A00; }
+.diet-nonveg { color: #A0302A; }
+
+.menu-badge {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 2px 8px;
+    border: 1px solid rgba(15, 15, 15, 0.15);
+    border-radius: 999px;
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    vertical-align: 2px;
+    color: var(--color-text-secondary);
+}
+
+.menu-badge-best {
+    background: var(--color-accent-coffee);
+    border-color: var(--color-accent-coffee);
+    color: var(--color-white);
+}
+
+.diet-toggle-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin: 0 0 30px;
+}
+
+.diet-toggle {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 18px;
+    border: 1px solid rgba(15, 15, 15, 0.2);
+    border-radius: 999px;
+    background: transparent;
+    font-family: var(--font-primary);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all var(--duration-fast) ease;
+}
+
+.diet-toggle.active {
+    background: #1E8E3E;
+    border-color: #1E8E3E;
+    color: var(--color-white);
+}
+
+.diet-toggle.active .diet-dot {
+    color: var(--color-white);
+}
+
+.diet-legend {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+}
+
+.diet-legend .diet-dot {
+    margin: 0 5px 0 12px;
+}
+
+.footer-note {
+    margin-top: 12px;
+}
+
+.footer-note a {
+    text-decoration: underline;
+}
