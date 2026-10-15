@@ -1,0 +1,966 @@
+/* Components carried over from the previous style.css (menu cards, map markers, WhatsApp button, booking + order pop-ups, open badge, diet dots). */
+.menu-section {
+    background-color: var(--color-bg-card);
+    border-top: var(--border-thin);
+    border-bottom: var(--border-thin);
+}
+
+.menu-filters {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: transparent;
+    border: none;
+    padding: 10px 24px;
+    font-family: var(--font-primary);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: all var(--duration-medium) var(--transition-slow);
+    border: 1px solid transparent;
+}
+
+.filter-btn:hover {
+    opacity: 0.9;
+}
+
+.filter-btn.active {
+    opacity: 1;
+    border-bottom: 1px solid var(--color-text-primary);
+    font-weight: 500;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 80px;
+    row-gap: 45px;
+}
+
+.menu-item-card {
+    transition: all var(--duration-medium) var(--transition-slow);
+}
+
+.menu-item-card.hidden {
+    opacity: 0;
+    transform: translateY(10px);
+    display: none;
+}
+
+.menu-item-header {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 8px;
+}
+
+.menu-item-name {
+    font-size: 1.15rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+}
+
+.menu-item-line {
+    flex-grow: 1;
+    border-bottom: 1px dashed rgba(15, 15, 15, 0.1);
+    margin: 0 15px;
+}
+
+.menu-item-price {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--color-accent-coffee);
+}
+
+/* Menu Item Metadata Styles */
+.menu-item-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.menu-meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+}
+
+.menu-meta-item svg,
+.menu-meta-item i {
+    width: 13px !important;
+    height: 13px !important;
+    stroke-width: 2;
+    display: inline-block;
+}
+
+.menu-meta-item.text-warning {
+    color: #c99a2e;
+    /* Sleek warning color for "Contains Milk" */
+}
+
+/* Menu Search Bar Styles */
+.menu-search-container {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto 50px auto;
+    display: flex;
+    align-items: center;
+}
+
+.menu-search-icon {
+    position: absolute;
+    left: 24px;
+    color: var(--color-accent-coffee);
+    width: 22px;
+    height: 22px;
+    pointer-events: none;
+    transition: color var(--duration-fast);
+}
+
+#menu-search-input {
+    width: 100%;
+    padding: 20px 28px 20px 64px;
+    font-family: var(--font-primary);
+    font-size: 1.15rem;
+    font-weight: 300;
+    color: var(--color-text-primary);
+    background-color: var(--color-white);
+    border: var(--border-thin);
+    border-radius: 0;
+    transition: all var(--duration-medium) var(--transition-slow);
+    letter-spacing: 0.02em;
+    outline: none;
+}
+
+#menu-search-input::placeholder {
+    color: var(--color-accent-muted);
+    opacity: 0.7;
+}
+
+#menu-search-input:focus {
+    border-color: var(--color-accent-coffee);
+    box-shadow: 0 10px 30px rgba(111, 78, 55, 0.04);
+}
+
+#menu-search-input:focus+.menu-search-icon {
+    color: var(--color-text-primary);
+}
+
+/* Custom Marker Styling */
+.cafe-marker-dot {
+    width: 14px;
+    height: 14px;
+    background-color: var(--color-accent-coffee);
+    border: 3px solid var(--color-white);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(15, 15, 15, 0.35);
+}
+
+.user-marker-dot {
+    width: 14px;
+    height: 14px;
+    background-color: #2ba45e;
+    border: 3px solid var(--color-white);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(15, 15, 15, 0.35);
+}
+
+/* Sleek minimal popup custom styles */
+.leaflet-popup-content-wrapper {
+    background-color: var(--color-bg-card) !important;
+    color: var(--color-text-primary) !important;
+    font-family: var(--font-primary) !important;
+    font-size: 0.8rem !important;
+    border-radius: 6px !important;
+    border: var(--border-thin) !important;
+    box-shadow: 0 10px 25px rgba(15, 15, 15, 0.1) !important;
+}
+
+.leaflet-popup-tip {
+    background-color: var(--color-bg-card) !important;
+}
+
+/* ==========================================================================
+   FLOATING WHATSAPP BUTTON
+   ========================================================================== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: #ffffff !important;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(18, 140, 126, 0.3), 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.08) translateY(-4px);
+    box-shadow: 0 12px 30px rgba(18, 140, 126, 0.45), 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.whatsapp-float:active {
+    transform: scale(0.95) translateY(-1px);
+}
+
+/* Elegant Pulsing Glow Ring */
+.whatsapp-float::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    z-index: -1;
+    opacity: 0.4;
+    animation: whatsapp-pulse 2s infinite ease-out;
+}
+
+@keyframes whatsapp-pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.4;
+    }
+
+    100% {
+        transform: scale(1.45);
+        opacity: 0;
+    }
+}
+
+/* WhatsApp Icon styling */
+.whatsapp-float svg {
+    width: 28px;
+    height: 28px;
+    fill: #ffffff;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover svg {
+    transform: scale(1.05) rotate(10deg);
+}
+
+/* Premium Glassmorphism Tooltip */
+.whatsapp-tooltip {
+    position: absolute;
+    right: 75px;
+    top: 50%;
+    transform: translateY(-50%) translateX(10px);
+    background: rgba(15, 15, 15, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    font-family: var(--font-primary), sans-serif;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Tooltip Little Arrow */
+.whatsapp-tooltip::after {
+    content: '';
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent transparent transparent rgba(15, 15, 15, 0.85);
+}
+
+.whatsapp-float:hover .whatsapp-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) translateX(0);
+}
+
+/* Responsive adjustments for floating button */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+        width: 52px;
+        height: 52px;
+    }
+
+    .whatsapp-float svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    /* Hide tooltip on mobile to avoid overlap and clutter */
+    .whatsapp-tooltip {
+        display: none;
+    }
+}
+.wa-reservation-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--duration-medium) var(--transition-slow), visibility var(--duration-medium) var(--transition-slow);
+}
+
+.wa-reservation-modal.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.wa-reservation-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 15, 15, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.wa-reservation-modal-card {
+    position: relative;
+    background-color: var(--color-bg-card);
+    padding: 48px 40px 40px 40px;
+    border-radius: 16px;
+    border: var(--border-thin);
+    width: 90%;
+    max-width: 680px;
+    box-shadow: 0 20px 50px rgba(15, 15, 15, 0.15);
+    transform: scale(0.95) translateY(15px);
+    transition: transform var(--duration-medium) var(--transition-slow);
+    z-index: 2;
+    max-height: 90vh;
+    max-height: 90dvh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(15, 15, 15, 0.2) transparent;
+}
+
+.wa-reservation-modal-card::-webkit-scrollbar {
+    width: 6px;
+}
+
+.wa-reservation-modal-card::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.wa-reservation-modal-card::-webkit-scrollbar-thumb {
+    background: rgba(15, 15, 15, 0.15);
+    border-radius: 3px;
+}
+
+.wa-reservation-modal-card::-webkit-scrollbar-thumb:hover {
+    background: rgba(15, 15, 15, 0.35);
+}
+
+.wa-reservation-modal.open .wa-reservation-modal-card {
+    transform: scale(1) translateY(0);
+}
+
+.wa-reservation-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text-secondary);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: color var(--duration-fast), background-color var(--duration-fast);
+}
+
+.wa-reservation-modal-close:hover {
+    color: var(--color-text-primary);
+    background-color: rgba(15, 15, 15, 0.05);
+}
+
+.wa-reservation-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.wa-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.wa-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.wa-form-group.wa-full-width {
+    grid-column: span 2;
+}
+
+.wa-form-group label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-text-secondary);
+    margin-bottom: 2px;
+}
+
+.wa-form-group input,
+.wa-form-group select,
+.wa-form-group textarea {
+    background-color: var(--color-white);
+    border: var(--border-light);
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-family: var(--font-primary), sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--color-text-primary);
+    outline: none;
+    transition: border-color var(--duration-fast), box-shadow var(--duration-fast);
+    width: 100%;
+}
+
+.wa-form-group input::placeholder,
+.wa-form-group textarea::placeholder {
+    color: #a0a09c;
+    opacity: 0.8;
+}
+
+.wa-form-group input:focus,
+.wa-form-group select:focus,
+.wa-form-group textarea:focus {
+    border-color: var(--color-text-primary);
+    box-shadow: 0 0 0 3px rgba(15, 15, 15, 0.05);
+}
+
+/* Custom Calendar Icon for Date Input */
+.wa-form-group input[type="date"] {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%235F5F5B' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='18' rx='2' ry='2'%3E%3C/rect%3E%3Cline x1='16' y1='2' x2='16' y2='6'%3E%3C/line%3E%3Cline x1='8' y1='2' x2='8' y2='6'%3E%3C/line%3E%3Cline x1='3' y1='10' x2='21' y2='10'%3E%3C/line%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 16px;
+    padding-right: 40px;
+    position: relative;
+}
+
+.wa-form-group input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Custom Dropdown Arrow styling */
+.wa-select-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.wa-select-wrapper select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%235F5F5B' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 16px;
+    padding-right: 40px;
+}
+
+.wa-form-group textarea {
+    height: 110px;
+    resize: none;
+    line-height: 1.5;
+}
+
+/* Premium Black Submit Button */
+.wa-btn-submit {
+    width: 100%;
+    padding: 18px 24px;
+    background-color: var(--color-text-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: 8px;
+    font-family: var(--font-primary), sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    cursor: pointer;
+    transition: background-color var(--duration-fast), transform var(--duration-fast), box-shadow var(--duration-fast);
+    margin-top: 8px;
+    text-align: center;
+}
+
+.wa-btn-submit:hover {
+    background-color: var(--color-accent-coffee);
+    box-shadow: 0 4px 15px rgba(15, 15, 15, 0.1);
+}
+
+.wa-btn-submit:active {
+    transform: translateY(1px);
+}
+
+/* Footer text */
+.wa-reservation-footer-text {
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--color-text-secondary);
+    margin-top: 4px;
+}
+
+.wa-concierge-link {
+    color: #2ba45e;
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color var(--duration-fast);
+}
+
+.wa-concierge-link:hover {
+    border-bottom-color: #2ba45e;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .wa-reservation-modal-card {
+        padding: 36px 20px 24px 20px;
+        border-radius: 12px;
+        width: 95%;
+    }
+    .wa-form-row {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .wa-form-group.wa-full-width {
+        grid-column: span 1;
+    }
+    .wa-reservation-form {
+        gap: 16px;
+    }
+    .wa-btn-submit {
+        padding: 16px 20px;
+        font-size: 0.8rem;
+    }
+}
+
+/* ==========================================================================
+   ORDER ONLINE FORM MODAL
+   ========================================================================== */
+.order-online-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--duration-medium) var(--transition-slow), visibility var(--duration-medium) var(--transition-slow);
+}
+
+.order-online-modal.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.order-online-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 15, 15, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.order-online-modal-card {
+    position: relative;
+    background-color: #121212; /* Rich dark matte charcoal background */
+    padding: 50px 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    width: 90%;
+    max-width: 640px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+    transform: scale(0.95) translateY(15px);
+    transition: transform var(--duration-medium) var(--transition-slow);
+    z-index: 2;
+    text-align: center;
+    max-height: 90vh;
+    max-height: 90dvh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+.order-online-modal-card::-webkit-scrollbar {
+    width: 6px;
+}
+
+.order-online-modal-card::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.order-online-modal-card::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 3px;
+}
+
+.order-online-modal-card::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.order-online-modal.open .order-online-modal-card {
+    transform: scale(1) translateY(0);
+}
+
+.order-online-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: none;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.6);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all var(--duration-fast);
+}
+
+.order-online-modal-close:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+}
+
+.order-online-modal-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+    font-family: var(--font-primary), sans-serif;
+}
+
+.order-online-modal-subtitle {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+    max-width: 480px;
+    margin: 0 auto 35px auto;
+    font-family: var(--font-primary), sans-serif;
+}
+
+.order-options-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 100%;
+}
+
+.order-option-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background-color: #1e1e1e; /* Slightly lighter charcoal than main card */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 30px 20px;
+    text-decoration: none;
+    color: #ffffff;
+    transition: all var(--duration-medium) var(--transition-slow);
+    cursor: pointer;
+}
+
+.order-option-card:hover {
+    background-color: #242424;
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.order-logo-wrapper {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #121212;
+    transition: transform var(--duration-fast);
+}
+
+.order-option-card:hover .order-logo-wrapper {
+    transform: scale(1.05);
+}
+
+.order-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Zomato Specific Scaling & Alignment */
+.order-option-card:nth-child(1) .order-logo-wrapper {
+    background-color: #e23744; /* Perfect Zomato red matching the logo */
+}
+.order-option-card:nth-child(1) .order-logo {
+    width: 62%;
+    height: 62%;
+}
+
+/* Swiggy Specific Scaling & Alignment */
+.order-option-card:nth-child(2) .order-logo-wrapper {
+    background-color: #fc8019; /* Perfect Swiggy orange matching the logo */
+}
+.order-option-card:nth-child(2) .order-logo {
+    width: 58%;
+    height: 58%;
+}
+
+.order-option-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #ffffff;
+    font-family: var(--font-primary), sans-serif;
+}
+
+/* Responsive adjustments for Order Online Modal */
+@media (max-width: 600px) {
+    .order-online-modal-card {
+        padding: 40px 20px;
+        width: 95%;
+        border-radius: 16px;
+    }
+    .order-online-modal-title {
+        font-size: 1.8rem;
+    }
+    .order-online-modal-subtitle {
+        font-size: 0.88rem;
+        margin-bottom: 25px;
+    }
+    .order-options-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    .order-option-card {
+        flex-direction: row;
+        gap: 20px;
+        padding: 16px 24px;
+        justify-content: flex-start;
+    }
+    .order-logo-wrapper {
+        width: 52px;
+        height: 52px;
+    }
+    .order-option-title {
+        font-size: 0.9rem;
+    }
+}
+
+/* ==========================================================================
+   GOOGLE REVIEW CTA
+   ========================================================================== */
+.hero-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 16px;
+    margin: -20px auto 30px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+}
+
+.hero-status:empty {
+    display: none;
+}
+
+.hero-status::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.hero-status.is-open::before {
+    background: #3BB273;
+    box-shadow: 0 0 0 0 rgba(59, 178, 115, 0.6);
+    animation: statusPulse 2s infinite;
+}
+
+.hero-status.is-closing::before {
+    background: #F2A93B;
+}
+
+@keyframes statusPulse {
+    70% { box-shadow: 0 0 0 8px rgba(59, 178, 115, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(59, 178, 115, 0); }
+}
+
+.hero-content .fade-in-element:nth-child(5) {
+    animation-delay: 1s;
+}
+
+.diet-dot {
+    display: inline-block;
+    position: relative;
+    flex-shrink: 0;
+    width: 12px;
+    height: 12px;
+    margin-right: 8px;
+    border: 1.5px solid currentColor;
+    border-radius: 2px;
+    vertical-align: -1px;
+}
+
+.diet-dot::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.diet-veg { color: #1E8E3E; }
+.diet-egg { color: #D49A00; }
+.diet-nonveg { color: #A0302A; }
+
+.menu-badge {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 2px 8px;
+    border: 1px solid rgba(15, 15, 15, 0.15);
+    border-radius: 999px;
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    vertical-align: 2px;
+    color: var(--color-text-secondary);
+}
+
+.menu-badge-best {
+    background: var(--color-accent-coffee);
+    border-color: var(--color-accent-coffee);
+    color: var(--color-white);
+}
+
+.diet-toggle-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin: 0 0 30px;
+}
+
+.diet-toggle {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 18px;
+    border: 1px solid rgba(15, 15, 15, 0.2);
+    border-radius: 999px;
+    background: transparent;
+    font-family: var(--font-primary);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all var(--duration-fast) ease;
+}
+
+.diet-toggle.active {
+    background: #1E8E3E;
+    border-color: #1E8E3E;
+    color: var(--color-white);
+}
+
+.diet-toggle.active .diet-dot {
+    color: var(--color-white);
+}
+
+.diet-legend {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+}
+
+.diet-legend .diet-dot {
+    margin: 0 5px 0 12px;
+}
+
+.footer-note {
+    margin-top: 12px;
+}
+
+.footer-note a {
+    text-decoration: underline;
+}

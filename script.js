@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ==========================================================================
        NAVIGATION & SCROLL EFFECTS
        ========================================================================== */
-    const navbar = document.querySelector('.navbar');
+    const navbar = document.querySelector('.site-nav');
     const scrollProgress = document.getElementById('scroll-progress');
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = document.querySelectorAll('section');
@@ -24,11 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Navbar scrolled class
-        if (scrollTop > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
+        if (navbar) navbar.classList.toggle('scrolled', scrollTop > 10);
 
         // Active link on scroll highlight
         let currentSectionId = '';
@@ -51,35 +47,17 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ==========================================================================
        MOBILE OVERLAY MENU
        ========================================================================== */
-    const hamburgerBtn = document.getElementById('hamburger-btn');
-    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-
-    const toggleMobileMenu = () => {
-        const isOpen = mobileMenuOverlay.classList.contains('open');
-        if (isOpen) {
-            mobileMenuOverlay.classList.remove('open');
-            hamburgerBtn.classList.remove('active');
-            document.body.style.overflow = 'auto'; // enable scroll
-        } else {
-            mobileMenuOverlay.classList.add('open');
-            hamburgerBtn.classList.add('active');
-            document.body.style.overflow = 'hidden'; // disable scroll
-        }
+    const navToggle = document.querySelector('.nav-toggle');
+    const mobilePanel = document.getElementById('mobile-panel');
+    const setPanel = (open) => {
+        if (!navToggle || !mobilePanel) return;
+        mobilePanel.classList.toggle('open', open);
+        navToggle.setAttribute('aria-expanded', String(open));
+        navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        document.body.style.overflow = open ? 'hidden' : '';
     };
-
-    if (hamburgerBtn && mobileMenuOverlay) {
-        hamburgerBtn.addEventListener('click', toggleMobileMenu);
-    }
-
-    mobileNavLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            // Close menu drawer on click
-            mobileMenuOverlay.classList.remove('open');
-            hamburgerBtn.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        });
-    });
+    if (navToggle) navToggle.addEventListener('click', () => setPanel(navToggle.getAttribute('aria-expanded') !== 'true'));
+    if (mobilePanel) mobilePanel.querySelectorAll('a, button').forEach(el => el.addEventListener('click', () => setPanel(false)));
 
     /* ==========================================================================
        SCROLL REVEAL (INTERSECTION OBSERVER)
@@ -134,14 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             let shouldShow = matchesCategory && matchesSearch && matchesDiet;
 
-            // If "All Menu" is active (default landing state), limit to the top 11 items
-            if (shouldShow && activeCategory === 'all') {
-                if (shownCount >= 11) {
-                    shouldShow = false;
-                } else {
-                    shownCount++;
-                }
-            }
+            if (shouldShow) shownCount++;
 
             // Clear any active timeouts to prevent race conditions when clicking rapidly
             if (item.dataset.timeoutId) {
@@ -167,6 +138,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 item.dataset.timeoutId = tId;
             }
         });
+        const empty = document.getElementById('menu-empty');
+        if (empty) empty.classList.toggle('show', menuItems.length > 0 && shownCount === 0);
     };
 
     filterButtons.forEach(btn => {
@@ -208,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
         else if (/wa\.me/.test(href) || el.id === 'whatsapp-floating-btn') name = 'whatsapp_click';
         else if (/google\.[a-z.]+\/maps/.test(href) || el.id === 'btn-start-navigation') name = 'get_directions_click';
         else if (/swiggy\.com|zomato\.com/.test(href)) name = 'order_online_click';
-        else if (el.id === 'order-online-btn') name = 'order_online_open';
+        else if (el.id === 'order-online-btn' || el.hasAttribute('data-open-order')) name = 'order_online_open';
         else if (el.hasAttribute('data-open-reservation')) name = 'book_table_open';
         else if (el.classList.contains('filter-btn')) name = 'menu_category_view';
         if (name) gtag('event', name, { link_url: href || undefined, category: el.dataset.category || undefined });
@@ -319,7 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Keyboard controls for lightbox
     document.addEventListener('keydown', (e) => {
-        if (!lightboxModal.classList.contains('open')) return;
+        if (!lightboxModal || !lightboxModal.classList.contains('open')) return;
 
         if (e.key === 'Escape') {
             closeLightbox();
@@ -360,14 +333,14 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ==========================================================================
        SANCTUARY MAP WIDGET INTEGRATION
        ========================================================================== */
-    const CAFE_LAT = 19.0743;
-    const CAFE_LNG = 72.8532;
+    const CAFE_LAT = 19.0774537; // Google Business Profile pin
+    const CAFE_LNG = 72.8493026;
     const mapElement = document.getElementById('footer-map');
 
     if (mapElement && typeof L !== 'undefined') {
         const map = L.map('footer-map', {
             center: [CAFE_LAT, CAFE_LNG],
-            zoom: 15,
+            zoom: 16,
             zoomControl: false,
             scrollWheelZoom: false
         });
@@ -544,6 +517,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Quick booking bar (homepage): carries date/time/guests into the WhatsApp form
+    const quickBook = document.getElementById('quick-book');
+    const qbDate = document.getElementById('qb-date');
+    if (qbDate && dateInput) { qbDate.value = dateInput.value; qbDate.min = dateInput.min; }
+    if (quickBook) {
+        quickBook.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (dateInput && qbDate.value) dateInput.value = qbDate.value;
+            const t = document.getElementById('wa-reserve-time'); if (t) t.value = document.getElementById('qb-time').value;
+            const g = document.getElementById('wa-reserve-guests'); if (g) g.value = document.getElementById('qb-guests').value;
+            if (typeof gtag === 'function') gtag('event', 'book_table_open', { source: 'booking_bar' });
+            openWaModal();
+            const n = document.getElementById('wa-reserve-name'); if (n) setTimeout(() => n.focus(), 50);
+        });
+    }
+
     // Helper: format YYYY-MM-DD date to "1 May 2026"
     const formatDateString = (dateStr) => {
         if (!dateStr) return '';
@@ -567,7 +556,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // e.g. "2 Guests (Intimate)" -> match digits or fallback
         const match = optionVal.match(/^(\d+|\d+\+)/);
         if (match) {
-            return `${match[1]} seating`;
+            return `${match[1]} ${match[1] === '1' ? 'guest' : 'guests'}`;
         }
         return optionVal; // fallback
     };
@@ -585,11 +574,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const guestsFormatted = formatGuests(rawGuests);
             const dateFormatted = formatDateString(rawDate);
-            const requestsFormatted = rawRequests ? `"${rawRequests}"` : '"none"';
+            const requestsFormatted = rawRequests || 'none';
 
-            // Format message exactly as required:
-            // "Hello Cafe Kokomo. Concierge, I would like to request an exclusive reservation under your tropical canopy: • Name: aryan • Guests: 2 seating • Date: 1 May 2026 • Time: 11:00 AM • Special Curation Requests: "none" Thank you, please confirm availability."
-            const message = `Hello Cafe Kokomo. I would like to request an exclusive reservation under your tropical canopy: • Name: ${name} • Guests: ${guestsFormatted} • Date: ${dateFormatted} • Time: ${time} • Special Curation Requests: ${requestsFormatted} Thank you, please confirm availability.`;
+            const message = `Hello Cafe Kokomo, I'd like to book a table.\n• Name: ${name}\n• Guests: ${guestsFormatted}\n• Date: ${dateFormatted}\n• Time: ${time}\n• Requests: ${requestsFormatted}\nPlease confirm. Thank you.`;
 
             const phone = "918591515657";
             const encodedMsg = encodeURIComponent(message);
@@ -610,7 +597,7 @@ document.addEventListener('DOMContentLoaded', () => {
        ORDER ONLINE FORM MODAL
        ========================================================================== */
     const orderModal = document.getElementById('order-online-modal');
-    const orderOpenBtn = document.getElementById('order-online-btn');
+    const orderOpenBtns = document.querySelectorAll('#order-online-btn, [data-open-order]');
     const orderCloseBtn = document.getElementById('order-online-modal-close-btn');
     const orderOverlay = document.getElementById('order-online-modal-overlay');
 
@@ -630,12 +617,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    if (orderOpenBtn) {
-        orderOpenBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            openOrderModal();
-        });
-    }
+    orderOpenBtns.forEach(btn => btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openOrderModal();
+    }));
 
     if (orderCloseBtn) orderCloseBtn.addEventListener('click', closeOrderModal);
     if (orderOverlay) orderOverlay.addEventListener('click', closeOrderModal);
