@@ -1,0 +1,898 @@
+[
+{
+"name": "Sip & Paint",
+"price": "₹149",
+"cat": "experiences",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Blind Date Book",
+"price": "₹199",
+"cat": "experiences",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Espresso",
+"price": "₹149",
+"cat": "coffee",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Americano",
+"price": "₹229",
+"cat": "coffee",
+"best": true,
+"diet": "veg"
+},
+{
+"name": "Cappuccino",
+"price": "₹249",
+"cat": "coffee",
+"best": true,
+"diet": "veg"
+},
+{
+"name": "Latte",
+"price": "₹269",
+"cat": "coffee",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Mocha",
+"price": "₹299",
+"cat": "coffee",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Cheesecake latte",
+"price": "₹289",
+"cat": "coffee",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Hazelnut latte",
+"price": "₹289",
+"cat": "coffee",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Caramel latte",
+"price": "₹289",
+"cat": "coffee",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Flat white",
+"price": "₹249",
+"cat": "coffee",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Spanish latte",
+"price": "₹299",
+"cat": "coffee",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Iced caramel latte",
+"price": "₹289",
+"cat": "coffee",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Iced hazelnut latte",
+"price": "₹289",
+"cat": "coffee",
+"best": true,
+"diet": "veg"
+},
+{
+"name": "Iced cheesecake latte",
+"price": "₹289",
+"cat": "coffee",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Iced Americano",
+"price": "₹229",
+"cat": "coffee",
+"best": true,
+"diet": "veg"
+},
+{
+"name": "Iced Latte",
+"price": "₹269",
+"cat": "coffee",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Iced Mocha",
+"price": "₹299",
+"cat": "coffee",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "The Classic Cold Coffee",
+"price": "₹299",
+"cat": "coffee",
+"best": true,
+"diet": "veg"
+},
+{
+"name": "Yuzu Espresso Sparkler",
+"price": "₹299",
+"cat": "coffee",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Iced Coconut Espresso",
+"price": "₹299",
+"cat": "coffee",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Iced Spanish Latte",
+"price": "₹299",
+"cat": "coffee",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Iced Mocha Brown Butter Latte",
+"price": "₹299",
+"cat": "coffee",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Mocha Strawberry Latte",
+"price": "₹299",
+"cat": "coffee",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Iced Pistachio Dream",
+"price": "₹299",
+"cat": "coffee",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "The Pistachio Latte",
+"price": "₹299",
+"cat": "coffee",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Espresso Tonic",
+"price": "₹299",
+"cat": "coffee",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Iced Velvet Vanilla Matcha",
+"price": "₹299",
+"cat": "matcha",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Hot Velvet Vanilla Matcha",
+"price": "₹299",
+"cat": "matcha",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Iced Strawberry Glow Matcha",
+"price": "₹299",
+"cat": "matcha",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Iced Coconut Matcha",
+"price": "₹299",
+"cat": "matcha",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Iced Matcha",
+"price": "₹299",
+"cat": "matcha",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Classic Hot Chocolate",
+"price": "₹269",
+"cat": "frappe-cocoa",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Hazelnut Hot Chocolate",
+"price": "₹279",
+"cat": "frappe-cocoa",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Caramel Hot Chocolate",
+"price": "₹279",
+"cat": "frappe-cocoa",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Hot Chocolate With Marshmallows",
+"price": "₹299",
+"cat": "frappe-cocoa",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Hot Chocolate With Espresso",
+"price": "₹299",
+"cat": "frappe-cocoa",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Iced Chocolate",
+"price": "₹269",
+"cat": "frappe-cocoa",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Iced Chocolate With Espresso",
+"price": "₹299",
+"cat": "frappe-cocoa",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Coffee Frappe",
+"price": "₹329",
+"cat": "frappe-cocoa",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Mocha Frappe",
+"price": "₹349",
+"cat": "frappe-cocoa",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Nutella Frappe",
+"price": "₹349",
+"cat": "frappe-cocoa",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Hazelnut Frappe",
+"price": "₹349",
+"cat": "frappe-cocoa",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Classic Lemon Iced Tea",
+"price": "₹219",
+"cat": "drinks-teas",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Masala Tea",
+"price": "₹249",
+"cat": "drinks-teas",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Kashmiri Kahwa Tea",
+"price": "₹249",
+"cat": "drinks-teas",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Classic Mint Mojito",
+"price": "₹219",
+"cat": "drinks-teas",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Mumbai Masala Lemonade",
+"price": "₹219",
+"cat": "drinks-teas",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Sparkling Yuzu Spritz",
+"price": "₹269",
+"cat": "drinks-teas",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Oreo Milkshake",
+"price": "₹269",
+"cat": "drinks-teas",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Choco Chips Milkshake",
+"price": "₹269",
+"cat": "drinks-teas",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Nutella Cheesecake Milkshake",
+"price": "₹269",
+"cat": "drinks-teas",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Oreo Cheesecake Milkshake",
+"price": "₹269",
+"cat": "drinks-teas",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Flavoured Ice Tea",
+"price": "₹249",
+"cat": "drinks-teas",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Flavoured Mojito",
+"price": "₹249",
+"cat": "drinks-teas",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Stress Reliever Tea",
+"price": "₹249",
+"cat": "drinks-teas",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Throat Rescue Tea",
+"price": "₹249",
+"cat": "drinks-teas",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Tropical Espresso Fizz",
+"price": "₹269",
+"cat": "drinks-teas",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Ruby Rush",
+"price": "₹269",
+"cat": "drinks-teas",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Coke",
+"price": "₹199",
+"cat": "drinks-teas",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Diet Coke",
+"price": "₹199",
+"cat": "drinks-teas",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Classic Coke Float",
+"price": "₹299",
+"cat": "drinks-teas",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "English Breakfast",
+"price": "₹349",
+"cat": "breakfast",
+"best": false,
+"diet": "nonveg"
+},
+{
+"name": "Butter Garlic Sausages",
+"price": "₹249",
+"cat": "breakfast",
+"best": false,
+"diet": "nonveg"
+},
+{
+"name": "Classic Cream Cheese Bagel",
+"price": "₹269",
+"cat": "breakfast",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Mushroom & Cream Cheese Bagel",
+"price": "₹329",
+"cat": "breakfast",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Scrambled Egg & Cheese Bagel",
+"price": "₹329",
+"cat": "breakfast",
+"best": false,
+"diet": "egg"
+},
+{
+"name": "Creamy Scrambled Eggs",
+"price": "₹249",
+"cat": "breakfast",
+"best": false,
+"diet": "egg"
+},
+{
+"name": "Sunny Side Up",
+"price": "₹249",
+"cat": "breakfast",
+"best": false,
+"diet": "egg"
+},
+{
+"name": "Mumbai Masala Omelette",
+"price": "₹249",
+"cat": "breakfast",
+"best": false,
+"diet": "egg"
+},
+{
+"name": "Egg Whites Omelette",
+"price": "₹249",
+"cat": "breakfast",
+"best": false,
+"diet": "egg"
+},
+{
+"name": "Chicken And Cheese Omelette",
+"price": "₹299",
+"cat": "breakfast",
+"best": false,
+"diet": "nonveg"
+},
+{
+"name": "Loaded Pancake Stacker",
+"price": "₹429",
+"cat": "breakfast",
+"best": false,
+"diet": "nonveg"
+},
+{
+"name": "Crispy Fried Chicken Wings",
+"price": "₹279",
+"cat": "bites-croissants",
+"best": false,
+"diet": "nonveg"
+},
+{
+"name": "Crispy Fried Hot Wings",
+"price": "₹279",
+"cat": "bites-croissants",
+"best": false,
+"diet": "nonveg"
+},
+{
+"name": "Classic Chicken Popcorn",
+"price": "₹269",
+"cat": "bites-croissants",
+"best": false,
+"diet": "nonveg"
+},
+{
+"name": "Chicken Pops & Chips",
+"price": "₹299",
+"cat": "bites-croissants",
+"best": false,
+"diet": "nonveg"
+},
+{
+"name": "Seasoned Fries",
+"price": "₹249",
+"cat": "bites-croissants",
+"best": true,
+"diet": "veg"
+},
+{
+"name": "Classic Fries",
+"price": "₹229",
+"cat": "bites-croissants",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Classic Sweet Potato Fries",
+"price": "₹299",
+"cat": "bites-croissants",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Thai Chilli Potatoes",
+"price": "₹269",
+"cat": "bites-croissants",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Pepper Cheese Cigars",
+"price": "₹299",
+"cat": "bites-croissants",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Truffle Parmesan Fries",
+"price": "₹299",
+"cat": "bites-croissants",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Kokomo Special Loaded Nachos",
+"price": "₹299",
+"cat": "bites-croissants",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Cajun Spiced Chicken Wings",
+"price": "₹279",
+"cat": "bites-croissants",
+"best": false,
+"diet": "nonveg"
+},
+{
+"name": "Peri Peri Chicken Hummus & Pita",
+"price": "₹319",
+"cat": "bites-croissants",
+"best": false,
+"diet": "nonveg"
+},
+{
+"name": "Garlic Chicken Hummus & Pita",
+"price": "₹319",
+"cat": "bites-croissants",
+"best": false,
+"diet": "nonveg"
+},
+{
+"name": "Loaded Chicken Nachos",
+"price": "₹349",
+"cat": "bites-croissants",
+"best": false,
+"diet": "nonveg"
+},
+{
+"name": "Loaded Chicken Fries",
+"price": "₹299",
+"cat": "bites-croissants",
+"best": false,
+"diet": "nonveg"
+},
+{
+"name": "Butter Croissant",
+"price": "₹249",
+"cat": "bites-croissants",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Nutella Croissant",
+"price": "₹279",
+"cat": "bites-croissants",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Chocolate Croissant",
+"price": "₹279",
+"cat": "bites-croissants",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Chicken Ham & Cheese Croissant",
+"price": "₹369",
+"cat": "bites-croissants",
+"best": false,
+"diet": "nonveg"
+},
+{
+"name": "Loaded Fries",
+"price": "₹299",
+"cat": "bites-croissants",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Hummus &amp; Pita",
+"price": "₹269",
+"cat": "bites-croissants",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Nachos &amp; Hummus",
+"price": "₹299",
+"cat": "bites-croissants",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Falafel (6 pcs) with Hummus",
+"price": "₹299",
+"cat": "bites-croissants",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Vada Pav Sliders",
+"price": "₹269",
+"cat": "bites-croissants",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Basil Pesto Panini",
+"price": "₹329",
+"cat": "mains",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Smoked Chicken Sandwich",
+"price": "₹349",
+"cat": "mains",
+"best": false,
+"diet": "nonveg"
+},
+{
+"name": "Spicy Cottage Cheese Sandwich",
+"price": "₹349",
+"cat": "mains",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Grilled Chicken Sandwich",
+"price": "₹349",
+"cat": "mains",
+"best": false,
+"diet": "nonveg"
+},
+{
+"name": "Grilled Veggie Sandwich",
+"price": "₹329",
+"cat": "mains",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Mediterranean Salad",
+"price": "₹299",
+"cat": "mains",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Falafel & Hummus Bowl",
+"price": "₹369",
+"cat": "mains",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Alfredo Pasta",
+"price": "₹399",
+"cat": "mains",
+"best": true,
+"diet": "veg"
+},
+{
+"name": "Pesto Pasta",
+"price": "₹399",
+"cat": "mains",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Pink Sauce Pasta",
+"price": "₹399",
+"cat": "mains",
+"best": true,
+"diet": "veg"
+},
+{
+"name": "Arrabbiata Pasta",
+"price": "₹399",
+"cat": "mains",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Creamy Mushroom Alfredo Spaghetti",
+"price": "₹399",
+"cat": "mains",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Chicken Shawarma Bowl",
+"price": "₹369",
+"cat": "mains",
+"best": false,
+"diet": "nonveg"
+},
+{
+"name": "Cacio E Pepe Pasta",
+"price": "₹399",
+"cat": "mains",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Garlic Chilli Aglio Olio",
+"price": "₹399",
+"cat": "mains",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "New York Cheesecake",
+"price": "₹299",
+"cat": "desserts",
+"best": false,
+"diet": "egg"
+},
+{
+"name": "Nutella Cheesecake",
+"price": "₹349",
+"cat": "desserts",
+"best": false,
+"diet": "egg"
+},
+{
+"name": "Affogato",
+"price": "₹199",
+"cat": "desserts",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "World's Best Chocolate Cake Gluten-free Egg-containing",
+"price": "₹299",
+"cat": "desserts",
+"best": false,
+"diet": "egg"
+},
+{
+"name": "Honey Glazed Cinnamon Roll",
+"price": "₹219",
+"cat": "desserts",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Honey Butter Pancakes",
+"price": "₹259",
+"cat": "desserts",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Belgian Dark Chocolate Pancakes",
+"price": "₹259",
+"cat": "desserts",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Berry Pancakes",
+"price": "₹259",
+"cat": "desserts",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Belgian Milk Chocolate Pancakes",
+"price": "₹259",
+"cat": "desserts",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Nutella Bombolini",
+"price": "₹199",
+"cat": "desserts",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Lotus Biscoff Cinnamon Roll",
+"price": "₹269",
+"cat": "desserts",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Cinnamon Nutella Roll",
+"price": "₹269",
+"cat": "desserts",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Bisleri Small Bottle",
+"price": "₹39",
+"cat": "addons",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Nutella Pancakes",
+"price": "₹289",
+"cat": "desserts",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Crunchy Chilli Crisp",
+"price": "₹49",
+"cat": "addons",
+"best": false,
+"diet": "veg"
+}
+]
