@@ -35,6 +35,13 @@
 "diet": "veg"
 },
 {
+"name": "Vanilla Cappuccino",
+"price": "₹269",
+"cat": "coffee",
+"best": false,
+"diet": "veg"
+},
+{
 "name": "Latte",
 "price": "₹269",
 "cat": "coffee",
@@ -176,6 +183,20 @@
 },
 {
 "name": "The Pistachio Latte",
+"price": "₹299",
+"cat": "coffee",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Cookie Latte",
+"price": "₹299",
+"cat": "coffee",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Iced Cookie Latte",
 "price": "₹299",
 "cat": "coffee",
 "best": false,
@@ -427,13 +448,6 @@
 "diet": "veg"
 },
 {
-"name": "Classic Coke Float",
-"price": "₹299",
-"cat": "drinks-teas",
-"best": false,
-"diet": "veg"
-},
-{
 "name": "English Breakfast",
 "price": "₹349",
 "cat": "breakfast",
@@ -499,13 +513,6 @@
 {
 "name": "Chicken And Cheese Omelette",
 "price": "₹299",
-"cat": "breakfast",
-"best": false,
-"diet": "nonveg"
-},
-{
-"name": "Loaded Pancake Stacker",
-"price": "₹429",
 "cat": "breakfast",
 "best": false,
 "diet": "nonveg"
@@ -680,6 +687,13 @@
 },
 {
 "name": "Vada Pav Sliders",
+"price": "₹269",
+"cat": "bites-croissants",
+"best": false,
+"diet": "veg"
+},
+{
+"name": "Bruschetta",
 "price": "₹269",
 "cat": "bites-croissants",
 "best": false,

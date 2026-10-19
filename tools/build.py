@@ -40,7 +40,7 @@ menu_body = menu_sec[menu_sec.index("<!-- Menu Search Bar -->"):]
 while menu_body.count("</div>") > menu_body.count("<div"):            # drop the old .container close + the stray extra </div>
     menu_body = menu_body[:menu_body.rstrip().rindex("</div>")]
 assert menu_body.count("<div") == menu_body.count("</div>"), "menu block div imbalance"
-assert menu_body.count('class="menu-item-card"') == 128
+assert menu_body.count('class="menu-item-card"') == 130
 menu_body = menu_body.replace("Search signature brews, bites, or desserts...", "Search the menu: latte, pasta, cheesecake…")
 menu_body = menu_body.replace(" reveal-on-scroll", "")
 
@@ -84,9 +84,9 @@ FAQ = [
     ("Where exactly is the cafe?", "4, Pratap CHS Ltd, Shivaji Road, near Vakola Bridge, Santacruz East, Mumbai 400055. It's an 11-minute walk from Nap Manor Hostels."),
     ("Do I need to book a table?", "You can walk in. To book ahead, use Book a table on this site: it opens WhatsApp with your request and we reply to confirm."),
     ("Can I book for a group or a celebration?", "Yes. For 7 or more people, choose 7+ guests when you book and tell us the occasion in the notes, so we can set up the tables."),
-    ("Do you have vegetarian options?", "Yes. 103 of the 128 items on the menu are vegetarian. Every dish carries a dot: green for veg, yellow for egg and red for non-veg, and the menu page has a Veg only filter."),
+    ("Do you have vegetarian options?", "Yes. 106 of the 130 items on the menu are vegetarian. Every dish carries a dot: green for veg, yellow for egg and red for non-veg, and the menu page has a Veg only filter."),
     ("Is there Wi-Fi? Can I work from the cafe?", "Yes. There's Wi-Fi and plug points, and you're welcome to stay through the afternoon."),
-    ("Do you serve breakfast all day?", "Yes. The all-day breakfast includes the English Breakfast, omelettes, scrambled eggs, bagels and the Loaded Pancake Stacker."),
+    ("Do you serve breakfast all day?", "Yes. The all-day breakfast includes the English Breakfast, omelettes, scrambled eggs and bagels."),
     ("Do you have matcha?", "Yes, five matcha drinks at ₹299: Iced Matcha, Iced Coconut Matcha, Iced Strawberry Glow Matcha, and the Velvet Vanilla Matcha, hot or iced."),
     ("Do you have anything gluten-free?", "The World's Best Chocolate Cake is marked gluten-free on our menu (it contains egg). Ask us about other dishes."),
     ("Do you deliver?", "Yes, through Swiggy and Zomato. Delivery prices are set separately from the dine-in prices on this site."),
@@ -344,7 +344,7 @@ index = head("Cafe Kokomo | Coffee & comfort food in Santacruz East, Mumbai",
                 <ol class="ordered-list reveal-on-scroll">
 {best_li}
                 </ol>
-                <p class="ordered-note"><a class="text-link" href="/menu">See all 128 items on the menu</a></p>
+                <p class="ordered-note"><a class="text-link" href="/menu">See all 130 items on the menu</a></p>
             </div>
         </div>
     </section>
@@ -375,7 +375,7 @@ index = head("Cafe Kokomo | Coffee & comfort food in Santacruz East, Mumbai",
                     <div class="space-facts">
                         <div><strong>2021</strong><span>Opened</span></div>
                         <div><strong>7 days</strong><span>11 AM – 11 PM</span></div>
-                        <div><strong>128</strong><span>On the menu</span></div>
+                        <div><strong>130</strong><span>On the menu</span></div>
                     </div>
                 </div>
             </div>
@@ -568,7 +568,7 @@ GUIDES = [
          lede="Cafe Kokomo is on Shivaji Road, near Vakola Bridge, and opens every day from 11 AM to 11 PM. There's Wi-Fi and plug points, and you're welcome to stay through the afternoon.",
          sections=[
             ("What you get", "<ul><li>Wi-Fi and plug points</li><li>Open every day, 11 AM to 11 PM</li><li>A counter by the window for working on your own, and round tables for two to four</li><li>Cash, card or UPI</li></ul>"),
-            ("What to order for a long session", "<p>Coffee starts at ₹149 for an espresso. A cappuccino is ₹249 and The Classic Cold Coffee, our most-ordered drink, is ₹299. For food that works next to a laptop: sandwiches and panini at ₹329 to ₹349, pastas at ₹399, fries from ₹229 and croissants from ₹249. The <a href=\"/menu\">full menu</a> has 128 items.</p>"),
+            ("What to order for a long session", "<p>Coffee starts at ₹149 for an espresso. A cappuccino is ₹249 and The Classic Cold Coffee, our most-ordered drink, is ₹299. For food that works next to a laptop: sandwiches and panini at ₹329 to ₹349, pastas at ₹399, fries from ₹229 and croissants from ₹249. The <a href=\"/menu\">full menu</a> has 130 items.</p>"),
             ("Meetings and small groups", "<p>Book a table on WhatsApp from this site and mention the meeting in the notes. For 7 or more people, choose 7+ guests so we can set up the tables.</p>"),
             ("Getting here", BKC_P + VISIT_P),
          ]),
@@ -586,9 +586,9 @@ GUIDES = [
          ]),
     dict(slug="veg-friendly-cafe-vakola", short="Veg-friendly cafe",
          title="Veg-friendly cafe near Vakola, Santacruz East | Cafe Kokomo",
-         desc="103 of the 128 items at Cafe Kokomo near Vakola Bridge are vegetarian, and every dish is marked veg, egg or non-veg. Pastas, sandwiches, hummus, falafel and more.",
+         desc="106 of the 130 items at Cafe Kokomo near Vakola Bridge are vegetarian, and every dish is marked veg, egg or non-veg. Pastas, sandwiches, hummus, falafel and more.",
          h1='A veg-friendly cafe <span class="accent">near Vakola.</span>',
-         lede="103 of the 128 items on Cafe Kokomo's menu are vegetarian. Every dish is marked: a green dot for veg, yellow for egg and red for non-veg, and the menu page has a Veg only filter.",
+         lede="106 of the 130 items on Cafe Kokomo's menu are vegetarian. Every dish is marked: a green dot for veg, yellow for egg and red for non-veg, and the menu page has a Veg only filter.",
          sections=[
             ("Veg mains", "<p>All seven pastas are veg at ₹399: Alfredo, Pesto, Pink Sauce, Arrabbiata, Creamy Mushroom Alfredo Spaghetti, Cacio E Pepe and Garlic Chilli Aglio Olio. So are the Basil Pesto Panini (₹329), Grilled Veggie Sandwich (₹329), Spicy Cottage Cheese Sandwich (₹349), Falafel &amp; Hummus Bowl (₹369) and Mediterranean Salad (₹299).</p>"),
             ("Small plates to share", "<p>Hummus &amp; Pita (₹269), Nachos &amp; Hummus (₹299), Falafel with Hummus (6 pieces, ₹299), Kokomo Special Loaded Nachos (₹299), Vada Pav Sliders (₹269), Thai Chilli Potatoes (₹269), Truffle Parmesan Fries (₹299) and Seasoned Fries (₹249).</p>"),
@@ -602,7 +602,7 @@ GUIDES = [
          lede="Cafe Kokomo is in Santacruz East, near Vakola Bridge, a short drive from Bandra Kurla Complex.",
          sections=[
             ("How far it is", BKC_P),
-            ("What you'll find", "<ul><li>Open every day, 11 AM to 11 PM</li><li>Wi-Fi and plug points</li><li>128 dishes and drinks: coffee from ₹149, pastas and sandwiches at ₹329 to ₹399</li><li>A meal for two usually comes to about ₹400 to ₹600</li></ul>"),
+            ("What you'll find", "<ul><li>Open every day, 11 AM to 11 PM</li><li>Wi-Fi and plug points</li><li>130 dishes and drinks: coffee from ₹149, pastas and sandwiches at ₹329 to ₹399</li><li>A meal for two usually comes to about ₹400 to ₹600</li></ul>"),
             ("Before or after an appointment", "<p>If you have time to fill around a meeting or a visa appointment in BKC, you can sit with a coffee and a sandwich, charge your phone and get back on the road.</p>"),
             ("Booking for a meeting", "<p>Book a table on WhatsApp from this site and mention the meeting in the notes. For 7 or more people, choose 7+ guests.</p>"),
             ("Getting here", VISIT_P),
