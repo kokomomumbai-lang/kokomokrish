@@ -167,8 +167,9 @@ def nav(on_menu=False, sub=False):
     cur = ' aria-current="page"' if on_menu else ""
     links = [("/menu", "Menu", cur), (f"{p}#experiences", "Experiences", ""), (f"{p}#space", "The space", ""),
              (f"{p}#reviews", "Reviews", ""), (f"{p}#faq", "FAQ", ""), (f"{p}#visit", "Visit", "")]
-    a = "\n".join(f'            <a class="nav-link" href="{h}"{c}>{t}</a>' for h, t, c in links)
     m = "\n".join(f'        <a class="mobile-nav-link" href="{h}">{t}</a>' for h, t, c in links)
+    links.insert(4, (f"{p}#instagram", "Instagram", ""))           # desktop only; mobile panel links to the profile below
+    a = "\n".join(f'            <a class="nav-link" href="{h}"{c}>{t}</a>' for h, t, c in links)
     return f"""<body{' class="menu-page"' if on_menu else ''}>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-nav">
@@ -198,6 +199,7 @@ FOOTER = f"""<footer class="site-footer">
             <div>
                 <a href="/" class="logo">cafe kokomo<span class="logo-dot">.</span></a>
                 <p>Coffee, comfort food and a table to stay a while. Shivaji Road, Santacruz East, since 2021.</p>
+                <a class="footer-social" href="{IG}" target="_blank" rel="noopener" aria-label="Instagram">{IG_SVG}</a>
             </div>
             <a href="javascript:void(0)" class="btn btn-light" data-open-reservation>Book a table</a>
         </div>
@@ -441,6 +443,7 @@ index = head("Cafe Kokomo | Coffee & comfort food in Santacruz East, Mumbai",
                 <div><span class="eyebrow">Instagram</span><h2>Follow along <span class="accent">@cafekokomo</span></h2></div>
                 <p>Photos of the food, the space and what's new at the cafe. Tap any photo to open our Instagram.</p>
             </div>
+            <div class="reels" id="reels"></div>
             <div class="ig-grid">
 {ig_html}
             </div>
@@ -541,13 +544,13 @@ privacy = head("Privacy | Cafe Kokomo", "How cafekokomo.com handles your informa
         <div class="wrap prose">
             <span class="eyebrow">Privacy</span>
             <h1>Privacy, <span class="accent">plainly.</span></h1>
-            <p>Last updated 13 October 2026. This page covers cafekokomo.com, run by Cafe Kokomo, 4, Pratap CHS Ltd, Shivaji Road, Santacruz East, Mumbai 400055.</p>
+            <p>Last updated 19 October 2026. This page covers cafekokomo.com, run by Cafe Kokomo, 4, Pratap CHS Ltd, Shivaji Road, Santacruz East, Mumbai 400055.</p>
             <h2>What we measure</h2>
             <p>We use Google Analytics to count visits and see which pages people use and which buttons they tap (call, WhatsApp, directions, order online, book a table). It doesn't tell us who you are, and we don't run ads or sell data.</p>
             <h2>Booking a table</h2>
             <p>The booking form doesn't send anything to our server. It opens WhatsApp on your phone with your name, party size, date, time and notes filled in, and you choose whether to send it. We only see what you send us on WhatsApp, and we use it to confirm your table.</p>
             <h2>Services the site loads</h2>
-            <p>Fonts come from Fontshare, icons and the map library from unpkg, map tiles from OpenStreetMap and analytics from Google. Like any website, these services see your IP address when your browser loads them. Order links take you to Swiggy or Zomato, whose own policies apply there.</p>
+            <p>Fonts come from Fontshare, icons and the map library from unpkg, map tiles from OpenStreetMap and analytics from Google. Like any website, these services see your IP address when your browser loads them. Order links take you to Swiggy or Zomato, whose own policies apply there. Our Instagram section may embed public posts or reels from our own account (@cafekokomo); these are served by Instagram (Meta), which may set its own cookies under Meta's privacy policy.</p>
             <h2>Questions</h2>
             <p>Email <a href="mailto:info@cafekokomo.com">info@cafekokomo.com</a> or call +91 85915 15657.</p>
         </div>
