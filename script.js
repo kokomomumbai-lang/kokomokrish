@@ -641,6 +641,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+/* ==========================================================================
+   INSTAGRAM REELS (homepage #reels, above the photo grid)
+   Paste up to 3 public reel/post links from https://www.instagram.com/cafekokomo/ here, e.g.
+     const REELS = ['https://www.instagram.com/reel/ABC123/', 'https://www.instagram.com/p/XYZ789/'];
+   Leave it empty and nothing renders: Instagram's embed.js is not loaded at all.
+   ========================================================================== */
+const REELS = [
+    'https://www.instagram.com/reel/Dbf56sRsPC0/',
+    'https://www.instagram.com/reel/Da9ltREzLwm/',
+    'https://www.instagram.com/reel/C4Nb7zTIbFB/',
+]; // picked by Aparna, 19-Oct-2026
+
+if (typeof document !== 'undefined') document.addEventListener('DOMContentLoaded', () => {
+    const box = document.getElementById('reels');
+    // Only well-formed instagram.com /reel/ or /p/ links get through; anything else is dropped.
+    const urls = REELS.map(u => (String(u).match(/^https:\/\/(?:www\.)?instagram\.com\/(reel|p)\/([\w-]+)/) || [])).filter(m => m.length)
+        .slice(0, 3).map(m => `https://www.instagram.com/${m[1]}/${m[2]}/`);
+    if (!box || !urls.length) return;
+    box.innerHTML = urls.map(u => `<blockquote class="instagram-media" data-instgrm-permalink="${u}" data-instgrm-version="14"></blockquote>`).join('');
+    const s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.instagram.com/embed.js';
+    s.onload = () => { if (window.instgrm) window.instgrm.Embeds.process(); };
+    document.body.appendChild(s);
+});
+
 // Cafe Kokomo hours in Mumbai time (UTC+5:30, no daylight saving): open 11:00, close 23:00, every day.
 function kokomoStatus(nowMs) {
     const m = Math.floor(nowMs / 60000 + 330) % 1440; // minutes past midnight, IST

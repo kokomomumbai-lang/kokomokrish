@@ -106,7 +106,7 @@ em.accent, .accent { font-family: var(--font-accent); font-style: italic; font-w
 .logo { font-size: 1.5rem; font-weight: 900; letter-spacing: -0.04em; text-decoration: none; white-space: nowrap; }
 .logo .logo-dot { color: var(--color-accent-coffee); }
 .nav-links { display: flex; align-items: center; gap: 30px; }
-.nav-links a { font-size: 0.9375rem; font-weight: 500; text-decoration: none; color: var(--color-text-secondary); transition: color var(--duration-fast); }
+.nav-links a { font-size: 0.9375rem; font-weight: 500; white-space: nowrap; text-decoration: none; color: var(--color-text-secondary); transition: color var(--duration-fast); }
 .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--color-text-primary); }
 .nav-cta { display: flex; align-items: center; gap: 12px; }
 .nav-cta .btn { padding: 12px 20px; }
@@ -240,6 +240,10 @@ em.accent, .accent { font-family: var(--font-accent); font-style: italic; font-w
 .ig-tile .ig-icon { position: absolute; right: 10px; bottom: 10px; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: rgba(250, 247, 242, 0.92); color: var(--color-text-primary); opacity: 0; transform: translateY(6px); transition: opacity var(--duration-fast), transform var(--duration-fast); }
 .ig-tile:hover img { transform: scale(1.05); }
 .ig-tile:hover .ig-icon, .ig-tile:focus-visible .ig-icon { opacity: 1; transform: none; }
+/* 326px = the min-width Instagram puts on its embed iframe: 3 columns on desktop, fewer as space runs out, 1 on phones */
+.reels { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(326px, 100%), 1fr)); gap: 12px; justify-items: center; margin-bottom: 12px; }
+.reels:empty { display: none; }
+.reels .instagram-media { width: 100%; max-width: 400px !important; margin: 0 !important; background: var(--color-white); border: 0; border-radius: var(--radius-md); }
 .btn svg { flex-shrink: 0; }
 
 /* ---------- FAQ ---------- */
@@ -298,6 +302,8 @@ em.accent, .accent { font-family: var(--font-accent); font-style: italic; font-w
 .footer-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 32px; align-items: end; padding-bottom: 40px; border-bottom: 1px solid rgba(245, 245, 242, 0.12); }
 .footer-top .logo { color: var(--color-bg-primary); font-size: clamp(2.5rem, 7vw, 5rem); }
 .footer-top p { max-width: 38ch; margin-top: 10px; }
+.footer-social { display: inline-grid; place-items: center; width: 40px; height: 40px; margin-top: 16px; border-radius: 50%; border: 1px solid rgba(245, 245, 242, 0.25); color: var(--color-bg-primary); transition: background var(--duration-fast), color var(--duration-fast); }
+.footer-social:hover { background: var(--color-bg-primary); color: var(--color-ink); }
 .footer-cols { display: flex; flex-wrap: wrap; gap: 28px 56px; padding-top: 32px; font-size: 0.9375rem; }
 .footer-cols h4 { color: var(--color-bg-primary); font-size: 0.8125rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px; }
 .footer-cols a { display: block; text-decoration: none; margin-bottom: 8px; }
@@ -339,7 +345,7 @@ em.accent, .accent { font-family: var(--font-accent); font-style: italic; font-w
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1024px) {
-    .nav-links { gap: 20px; }
+    .nav-links { gap: 16px; }
     .dish { grid-column: span 4; }
     .dish.wide { grid-column: span 8; }
 }
