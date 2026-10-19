@@ -284,7 +284,7 @@ ticker_items = ["Open every day, 11 AM – 11 PM", "Matcha bar", "All-day breakf
 ticker = "".join(f"<span>{t}</span>" for t in ticker_items)
 
 index = head("Cafe Kokomo | Coffee & comfort food in Santacruz East, Mumbai",
-             "Cafe Kokomo is a cozy, tropical-themed cafe on Shivaji Road, near Vakola Bridge, Santacruz East: single-origin coffee, a matcha bar, all-day breakfast, pasta and bakes. Open every day, 11 AM to 11 PM.",
+             "Cozy tropical-themed cafe near Vakola Bridge, Santacruz East: single-origin coffee, matcha bar, all-day breakfast, pasta and bakes. Open daily 11 AM–11 PM.",
              "https://cafekokomo.com/", FAQ_LD + LEAFLET_CSS + '    <link rel="preload" as="image" href="/assets/images/v2/shopfront-night-1600.webp" imagesrcset="/assets/images/v2/shopfront-night-800.webp 800w, /assets/images/v2/shopfront-night-1600.webp 1600w" imagesizes="(max-width: 900px) 100vw, 50vw">\n') + nav() + f"""<main id="main">
     <section class="hero" id="home">
         <div class="wrap hero-grid">
