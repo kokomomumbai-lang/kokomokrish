@@ -259,7 +259,7 @@ best_li = "\n".join(
 
 dishes = [("Espresso Tonic", "espresso-tonic", True), ("Affogato", "affogato", False), ("Hummus & Pita", "hummus-pita", False),
           ("Butter Croissant", "croissant", False), ("New York Cheesecake", "ny-cheesecake", False),
-          ("Kokomo Special Loaded Nachos", "loaded-nachos", True), ("Oreo Milkshake", "oreo-shake", False),
+          ("Loaded Nachos", "loaded-nachos", True), ("Oreo Milkshake", "oreo-shake", False),
           ("Classic Hot Chocolate", "hot-chocolate", False)]
 dish_html = "\n".join(
     f"""                <figure class="dish{' wide' if w else ''} reveal-on-scroll">
@@ -594,7 +594,7 @@ GUIDES = [
          lede="106 of the 130 items on Cafe Kokomo's menu are vegetarian. Every dish is marked: a green dot for veg, yellow for egg and red for non-veg, and the menu page has a Veg only filter.",
          sections=[
             ("Veg mains", "<p>All seven pastas are veg at ₹399: Alfredo, Pesto, Pink Sauce, Arrabbiata, Creamy Mushroom Alfredo Spaghetti, Cacio E Pepe and Garlic Chilli Aglio Olio. So are the Basil Pesto Panini (₹329), Grilled Veggie Sandwich (₹329), Spicy Cottage Cheese Sandwich (₹349), Falafel &amp; Hummus Bowl (₹369) and Mediterranean Salad (₹299).</p>"),
-            ("Small plates to share", "<p>Hummus &amp; Pita (₹269), Nachos &amp; Hummus (₹299), Falafel with Hummus (6 pieces, ₹299), Kokomo Special Loaded Nachos (₹299), Vada Pav Sliders (₹269), Thai Chilli Potatoes (₹269), Truffle Parmesan Fries (₹299) and Seasoned Fries (₹249).</p>"),
+            ("Small plates to share", "<p>Hummus &amp; Pita (₹269), Nachos &amp; Hummus (₹299), Falafel with Hummus (6 pieces, ₹299), Loaded Nachos (₹299), Vada Pav Sliders (₹269), Thai Chilli Potatoes (₹269), Truffle Parmesan Fries (₹299) and Seasoned Fries (₹249).</p>"),
             ("If you don't eat egg", "<p>Eight items contain egg and carry the yellow dot: the five egg dishes on the breakfast menu, both cheesecakes and the World's Best Chocolate Cake. Everything else marked green is veg.</p>"),
             ("Getting here", VISIT_P),
          ]),
